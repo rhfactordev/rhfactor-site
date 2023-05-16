@@ -6,8 +6,10 @@
     <nuxt-link to="/contato">Contato</nuxt-link>
   </header>
   <slot />
-  <footer>
-    <nuxt-link to="/termos-de-uso">Termos de uso</nuxt-link>
-    <nuxt-link to="/privacidade">Política de privacidade</nuxt-link>
-  </footer>
+
+  <!-- Footer container -->
+  <layout-footer />
 </template>
+<script setup lang="ts">
+import LayoutFooter from "~/components/layout/LayoutFooter.vue";
+</script>

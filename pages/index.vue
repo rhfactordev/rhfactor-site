@@ -8,6 +8,9 @@ const posts = data.value.posts
 <template>
   <main>
 
+    <section>
+      <p v-for="i in 30" :key="i" >oi {{i}}</p>
+    </section>
 
     <section class="m-4">
       <h2 class="text-center text-3xl">Últimos posts</h2>

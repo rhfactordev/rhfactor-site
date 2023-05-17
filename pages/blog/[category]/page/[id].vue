@@ -21,13 +21,13 @@ const path = computed(()=>{
 
 </script>
 <template>
-  <main class="grid grid-cols-4 gap-2">
+  <main class="grid grid-cols-4 gap-0">
     <div class="col-span-4 bg-amber-500">
       <h1>{{ hasCategory ? categorySource : 'Blog'  }}</h1>
       <p>Você está na página {{page}}</p>
     </div>
-    <div class="col-span-4 md:col-span-3 bg-emerald-200">
-      <div class="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-4">
+    <div class="col-span-4 md:col-span-3 bg-emerald-200 p-4">
+      <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
         <blog-card v-for="({name, image, target, description},index) in posts" :key="index"
                    :name="name"
                    :image="image"

@@ -3,6 +3,54 @@
 @tailwind utilities;
 
 
+h1 {
+    @apply font-serif font-bold text-4xl
+}
+
+h2 {
+    @apply font-serif text-2xl
+}
+
+h3 {
+    @apply font-serif text-xl
+}
+
+h4 {
+    @apply font-serif text-lg
+}
+
+h5 {
+    @apply font-serif text-base
+}
+
+h6 {
+    @apply font-serif text-sm
+}
+
+P {
+    @apply font-sans font-normal text-sm
+}
+
+/**
+ Formulários
+ */
+
+.form-control {
+    @apply border-b-2 w-full outline-0
+}
+
+.form-control:focus {
+    @apply border-teal-500
+}
+
+.btn {
+    @apply bg-teal-300 p-2 text-white shadow-lg shadow-gray-300 rounded-sm;
+    &:hover {
+        @apply bg-teal-400;
+    }
+}
+
+
 .title {
     @apply text-center
     m-5
@@ -10,7 +58,7 @@
     text-teal-800;
 }
 
-aside .title{
+aside .title {
     @apply text-center
     text-4xl
     text-teal-800;
@@ -19,28 +67,28 @@ aside .title{
 .card {
     @apply block max-w-max bg-white drop-shadow-md;
 
-    .title {
-        @apply font-serif
-        font-extrabold
-        text-lg
-        text-center
-        mb-6;
-    }
+.title {
+    @apply font-serif
+    font-extrabold
+    text-lg
+    text-center
+    mb-6;
+}
 
-    .card-image{
-        @apply w-full mb-6;
-    }
+.card-image {
+    @apply w-full mb-6;
+}
 
-    .card-date{
-        @apply text-teal-400 text-sm text-center mx-auto mb-6;
-    }
+.card-date {
+    @apply text-teal-400 text-sm text-center mx-auto mb-6;
+}
 
-    .content{
-        @apply text-sm text-center p-3;
-    }
+.content {
+    @apply text-sm text-center p-3;
+}
 
-    .more{
-        @apply text-center hover:text-emerald-900;
-    }
+.more {
+    @apply text-center hover:text-emerald-900;
+}
 
 }

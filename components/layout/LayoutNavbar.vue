@@ -31,6 +31,10 @@
             <nuxt-link to="/loja" class="link" exact-active-class="text-teal-900">Loja</nuxt-link>
           </li>
           <li>
+            <nuxt-link to="/servicos" class="link" exact-active-class="text-teal-900">Serviços</nuxt-link>
+          </li>
+          <!--
+          <li>
             <button @click="dropdownState=!dropdownState" id="mega-menu-full-dropdown-button" data-collapse-toggle="mega-menu-full-dropdown" class="flex items-center justify-between w-full link-style">
               Serviços
               <svg class="w-5 h-5 ml-1" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
@@ -38,6 +42,7 @@
               </svg>
             </button>
           </li>
+          -->
           <li>
             <nuxt-link to="/sobre-mim" class="link" exact-active-class="text-teal-900">Sobre mim</nuxt-link>
           </li>

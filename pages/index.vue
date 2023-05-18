@@ -23,10 +23,6 @@ useServerSeoMeta(meta)
 <template>
   <main>
 
-    <section>
-      <slider />
-    </section>
-
     <section class="p-10 bg-teal-50">
       <h2 class="title">Últimos posts</h2>
       <p class="text-center mx-auto my-10 font-serif text-lg font-extralight">Quer se conectar mais a astrologia, de uma olhada nos nossos ultimos posts</p>

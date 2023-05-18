@@ -1,3 +1,6 @@
 <template>
-  <h1>Todos os serviços</h1>
+  <e-title>Serviços</e-title>
 </template>
+<script setup>
+import ETitle from "~/components/elements/ETitle.vue";
+</script>

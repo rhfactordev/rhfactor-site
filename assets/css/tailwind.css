@@ -1,3 +1,46 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+
+.title {
+    @apply text-center
+    m-5
+    text-4xl
+    text-teal-800;
+}
+
+aside .title{
+    @apply text-center
+    text-4xl
+    text-teal-800;
+}
+
+.card {
+    @apply block max-w-max bg-white drop-shadow-md;
+
+    .title {
+        @apply font-serif
+        font-extrabold
+        text-lg
+        text-center
+        mb-6;
+    }
+
+    .card-image{
+        @apply w-full mb-6;
+    }
+
+    .card-date{
+        @apply text-teal-400 text-sm text-center mx-auto mb-6;
+    }
+
+    .content{
+        @apply text-sm text-center p-3;
+    }
+
+    .more{
+        @apply text-center hover:text-emerald-900;
+    }
+
+}

@@ -1,6 +1,20 @@
 <script setup>
+import {useNuxtApp} from "#app";
+
 const { data } = await useFetch('/api/terms-of-use')
 const terms = data.value.terms
+
+const site = useNuxtApp().site
+const metas = {
+  title: `Termos de uso do site - ${site.title}`,
+  ogTitle: `Termos de uso do site- ${site.title}`,
+  description: `Leia os termos de uso do site ${site.title}`,
+  ogDescription: `Leia os termos de uso do site ${site.title}`,
+  ogImage: site.image
+}
+
+useSeoMeta(metas)
+useServerSeoMeta(metas)
 </script>
 
 <template>

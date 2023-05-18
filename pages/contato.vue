@@ -1,4 +1,20 @@
+<script setup>
+import ETitle from "~/components/elements/ETitle.vue";
+import {useNuxtApp} from "#app";
 
+const site = useNuxtApp().site
+
+const metas = {
+  title: `Contato - ${site.title}`,
+  ogTitle: `Contato - ${site.title}`,
+  description: `Entre em contato conosco pelo e-mail ${site.email} ou pelo whatsapp ${site.phone}`,
+  ogDescription: `Entre em contato conosco pelo e-mail ${site.email} ou pelo whatsapp ${site.phone}`,
+  ogImage: site.image
+}
+
+useSeoMeta(metas)
+useServerSeoMeta(metas)
+</script>
 <template>
-  <h1 class="text-center m-5 text-4xl text-teal-800">Contato</h1>
+  <e-title>Contato</e-title>
 </template>

@@ -1,3 +1,7 @@
+<script setup>
+defineProps(["description", "phone", "email"])
+</script>
+
 <template>
   <footer class="bg-teal-600 text-center text-white lg:text-left">
 
@@ -14,9 +18,7 @@
         <div>
           <img class="w-96 m-auto" src="https://www.andrezaastrologia.com.br/andrezaastrologia-logo-alpha.png" alt="Logo Site">
           <p class="mx-4 hidden md:block">
-            Here you can use rows and columns to organize your footer
-            content. Lorem ipsum dolor sit amet, consectetur adipisicing
-            elit.
+            {{description}}
           </p>
         </div>
 
@@ -60,10 +62,10 @@
             Contato
           </h6>
           <p class="mb-4 flex items-center justify-center md:justify-start">
-            (15) 99999-9999
+            {{phone}}
           </p>
           <p class="mb-4 flex items-center justify-center md:justify-start">
-            contato@andrezaastrologia.com.br
+            {{email}}
           </p>
           <p class="flex items-center justify-center md:justify-start mb-4">
             <nuxt-link class="hover:text-teal-800 text-neutral-50" to="/termos-de-uso">Termos de uso</nuxt-link>

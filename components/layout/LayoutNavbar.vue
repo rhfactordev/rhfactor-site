@@ -10,6 +10,11 @@
     }
     menuState.value = !menuState.value
   }
+
+  const closeDropdown = () => {
+    menuState.value = false
+    dropdownState.value = false
+  }
 </script>
 
 <template>
@@ -25,13 +30,13 @@
           >
         <ul class="flex flex-col md:flex-row p-4 md:p-2 mt-2 md:mt-0 border md:border-0 border-teal-700 rounded-md bg-teal-400 md:bg-transparent md:space-x-4">
           <li>
-            <nuxt-link to="/" class="link" exact-active-class="text-teal-900 ">Home</nuxt-link>
+            <nuxt-link @click="closeDropdown" to="/" class="link" exact-active-class="text-teal-900 ">Home</nuxt-link>
           </li>
           <li>
-            <nuxt-link to="/loja" class="link" exact-active-class="text-teal-900">Loja</nuxt-link>
+            <nuxt-link @click="closeDropdown" to="/loja" class="link" exact-active-class="text-teal-900">Loja</nuxt-link>
           </li>
           <li>
-            <nuxt-link to="/servicos" class="link" exact-active-class="text-teal-900">Serviços</nuxt-link>
+            <nuxt-link @click="closeDropdown" to="/servicos" class="link" exact-active-class="text-teal-900">Serviços</nuxt-link>
           </li>
           <!--
           <li>
@@ -44,13 +49,13 @@
           </li>
           -->
           <li>
-            <nuxt-link to="/sobre-mim" class="link" exact-active-class="text-teal-900">Sobre mim</nuxt-link>
+            <nuxt-link @click="closeDropdown" to="/sobre-mim" class="link" exact-active-class="text-teal-900">Sobre mim</nuxt-link>
           </li>
           <li>
-            <nuxt-link to="/blog" class="link" exact-active-class="text-teal-900">Blog</nuxt-link>
+            <nuxt-link @click="closeDropdown" to="/blog" class="link" exact-active-class="text-teal-900">Blog</nuxt-link>
           </li>
           <li>
-            <nuxt-link to="/contato" class="link" exact-active-class="text-teal-900">Contato</nuxt-link>
+            <nuxt-link @click="closeDropdown" to="/contato" class="link" exact-active-class="text-teal-900">Contato</nuxt-link>
           </li>
         </ul>
       </div>
@@ -59,19 +64,19 @@
     <div :class="{ 'hidden': !isDropdownOpened }" class="mt-1 z-50 border-gray-200 shadow-sm bg-white border-y">
       <ul class="grid grid-cols-1 md:grid-cols-2 gap-2 p-2">
           <li class="bg-teal-50 rounded">
-            <nuxt-link to="/servicos/thetahealing" class="dropdownLink">
+            <nuxt-link @click="closeDropdown" to="/servicos/thetahealing" class="dropdownLink">
               <div class="font-semibold">ThetaHealing</div>
               <span class="text-sm">Connect with third-party tools that you're already using.</span>
             </nuxt-link>
           </li>
           <li class="bg-teal-50 rounded">
-            <nuxt-link to="/servicos/constelacao-familiar" class="dropdownLink">
+            <nuxt-link @click="closeDropdown" to="/servicos/constelacao-familiar" class="dropdownLink">
               <div class="font-semibold">Constelação familiar</div>
               <span class="text-sm">Connect with third-party tools that you're already using.</span>
             </nuxt-link>
           </li>
           <li class="bg-teal-50 rounded">
-            <nuxt-link to="/servicos/thetahealing" class="dropdownLink">
+            <nuxt-link @click="closeDropdown" to="/servicos/thetahealing" class="dropdownLink">
               <div class="font-semibold">ThetaHealing</div>
               <span class="text-sm">Connect with third-party tools that you're already using.</span>
             </nuxt-link>

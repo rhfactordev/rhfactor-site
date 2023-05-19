@@ -84,7 +84,7 @@ const handleSubmit = async ( event ) => {
         <alert v-if="showMessage" :type="contactFormStatus.type">
           <p>{{ contactFormStatus.message }}</p>
         </alert>
-        <form @submit.prevent="handleSubmit" method="post" class="grid grid-cols-1 md:grid-cols-2 gap-4">
+        <form @submit.prevent="handleSubmit" method="post" class="mt-10 grid grid-cols-1 md:grid-cols-2 gap-4">
           <div class="mb-3">
             <label class="hidden" for="contactFieldName">Nome</label>
             <input v-model="contactForm.name" type="text" aria-required="true" name="name" id="contactFieldName" class="form-control" placeholder="Nome">
@@ -101,7 +101,7 @@ const handleSubmit = async ( event ) => {
             <label class="hidden" for="contactFieldMessage">Mensagem</label>
             <textarea v-model="contactForm.message" name="message" rows="5" id="contactFieldMessage" class="form-control" placeholder="Mensagem"></textarea>
           </div>
-          <button :disabled="contactFormPending" class="btn" type="submit">Enviar mensagem : {{contactFormPending}}</button>
+          <button :disabled="contactFormPending" class="btn" type="submit">Enviar mensagem</button>
         </form>
       </div>
     </div>

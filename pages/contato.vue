@@ -87,11 +87,11 @@ const handleSubmit = async ( event ) => {
         <form @submit.prevent="handleSubmit" method="post" class="mt-10 grid grid-cols-1 md:grid-cols-2 gap-4">
           <div class="mb-3">
             <label class="hidden" for="contactFieldName">Nome</label>
-            <input v-model="contactForm.name" type="text" aria-required="true" name="name" id="contactFieldName" class="form-control" placeholder="Nome">
+            <input v-model="contactForm.name" required type="text" aria-required="true" name="name" id="contactFieldName" class="form-control" placeholder="Nome">
           </div>
           <div class="mb-3">
             <label class="hidden" for="contactFieldEmail">E-mail</label>
-            <input v-model="contactForm.email" type="email" aria-required="true" name="email" id="contactFieldEmail" class="form-control" placeholder="E-mail">
+            <input v-model="contactForm.email" required type="email" aria-required="true" name="email" id="contactFieldEmail" class="form-control" placeholder="E-mail">
           </div>
           <div class="mb-3">
             <label class="hidden" for="contactFieldWhatsapp">Whatsapp</label>

@@ -5,15 +5,19 @@ import {useNuxtApp} from "#app";
 
 const route = useRoute()
 const pageSource = computed(()=> route.params.source )
-const categorySource = route.params.category
-
-const { data } = await useFetch('/api/blog/post', {
-  method: 'GET',
-  body: {
-    category : categorySource,
-    page : pageSource
+const categorySource = computed(()=> route.params.category)
+const serverUrl = computed(()=>{
+  let base = `/api/blog?`
+  if( categorySource ){
+    base += `&category=${categorySource.value}`
   }
+  if(pageSource){
+    base += `&post=${pageSource.value}`
+  }
+  return base
 })
+
+const { data } = await useFetch(serverUrl)
 
 const categories = data.value.categories
 const post = data.value.post
@@ -32,7 +36,6 @@ useServerSeoMeta(meta)
 
 </script>
 <template>
-
   <main class="grid grid-cols-4 gap-0">
     <e-title class="col-span-4">{{post.name}}</e-title>
     <div class="col-span-4 md:col-span-3 p-4">

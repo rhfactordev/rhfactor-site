@@ -6,11 +6,12 @@ export default defineEventHandler(async (event) => {
     const loadCategories = showCategories == null || showCategories
     const loadPosts = post == null
 
+    let entry
     const posts = []
     const categories = []
 
     // @ts-ignore
-    for (let i = 0; i < limit; i++) {
+    for (let i = 0; i < (limit?limit:1); i++) {
         if( loadCategories ){
             if (i < 6) {
                 categories.push({
@@ -23,26 +24,28 @@ export default defineEventHandler(async (event) => {
         if( loadPosts ){
             posts.push(
                 {
-                    name: `Post ${i} ${ category ? ' de' + category : '' } de page ${page}`,
-                    category: `categoria-${i}`,
-                    categoryName: `Categoria ${i}`,
-                    source: "categoria-1",
+                    name: `Post ${i} ${ category ? ` de ${category} ` : '' } ${page ?  `de page ${page}` : '' }`,
+                    category: `${ category ? `${category}` : 'sem-categoria' }`,
+                    categoryName: `${ category ? `${category}` : 'Sem Categoria' }`,
+                    source: `categoria-${i}`,
                     date: "20/12/2023 10:22h",
-                    target: "/blog/categoria-1/post",
-                    image: "https://picsum.photos/id/237/400/200",
-                    description: "descrição do post que vem aqui como um parafago mas não é com html"
+                    target: `/blog/${ category ? `${category}` : 'sem-categoria' }/${i}`,
+                    image: `https://picsum.photos/id/${i*10}/400/200`,
+                    description: "descrição do post que vem aqui como um parafago mas não é com html",
+                    content: `<p>Conteúdo em html do post ${i}</p>`
                 }
             )
         }else{
-            post = {
-                name: `Post ${i} ${ category ? ' de' + category : '' } de page ${page}`,
-                category: `categoria-${i}`,
-                categoryName: `Categoria ${i}`,
-                source: "categoria-1",
+            entry = {
+                name: `Post ${post} ${ category ? ` de ${category} ` : '' } ${page ?  `de page ${page}` : '' }`,
+                category: `${ category ? `${category}` : 'sem-categoria' }`,
+                categoryName: `${ category ? `${category} ` : 'Sem Categoria' }`,
+                source: `${ category ? `${category} ` : 'sem-categoria' }`,
                 date: "20/12/2023 10:22h",
-                target: "/blog/categoria-1/post",
-                image: "https://picsum.photos/id/237/400/200",
-                description: "descrição do post que vem aqui como um parafago mas não é com html"
+                target: `/blog/${ category ? `${category}` : 'sem-categoria' }/${i}`,
+                image: `https://picsum.photos/id/${i}/400/200`,
+                description: "descrição do post que vem aqui como um parafago mas não é com html",
+                content: `<p>Conteúdo em html do post ${post}</p>`
             }
         }
     }
@@ -52,6 +55,6 @@ export default defineEventHandler(async (event) => {
     return {
         posts,
         categories,
-        post
+        post : entry
     }
 })

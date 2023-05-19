@@ -54,7 +54,7 @@ useServerSeoMeta(metas)
       {{ hasCategory ? categoryName : 'Blog'  }}
     </e-title>
     <div class="col-span-4 md:col-span-3 p-4">
-      <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
+      <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 mb-6">
         <blog-card v-for="({name, image, target, description, date},index) in posts" :key="index"
                    :name="name"
                    :date="date"
@@ -62,7 +62,7 @@ useServerSeoMeta(metas)
                    :target="target"
                    :description="description" />
       </div>
-      <div class="text-center my-3">
+      <div class="text-center mb-4">
         <nav-pagination :path="path"
                         :pages="5"
                         :current="page"

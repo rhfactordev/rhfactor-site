@@ -71,7 +71,7 @@ useServerSeoMeta(metas)
     </div>
     <aside class="col-span-4 md:col-span-1">
       <div class="md:sticky top-10">
-        <blog-category :categories="categories" />
+        <blog-category title="Categorias" :categories="categories" />
       </div>
     </aside>
   </main>

@@ -1,9 +1,9 @@
 <script setup>
-defineProps(["categories"])
+defineProps(["categories","title"])
 </script>
 <template>
   <div class="p-5">
-    <h2 class="title">Categorias</h2>
+    <h2 class="title">{{title}}</h2>
     <ul>
       <li v-for="({name, target},index) in categories" :key="index">
         <nuxt-link class="font-serif text-sm pl-4" :to="target">{{name}}</nuxt-link>

@@ -5,6 +5,7 @@ export default defineNuxtConfig({
         'nuxt-delay-hydration',
         '@nuxtjs/html-validator',
         'nuxt-gtag',
+        'nuxt-icon'
     ],
     tailwindcss: {
         // cssPath: '~/assets/css/tailwind.css',

@@ -1,7 +1,9 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
     modules: [
-        '@nuxtjs/tailwindcss'
+        '@nuxtjs/tailwindcss',
+        'nuxt-delay-hydration',
+        '@nuxtjs/html-validator',
     ],
     nitro: {
         prerender: {
@@ -15,6 +17,10 @@ export default defineNuxtConfig({
         // exposeLevel: 2,
         injectPosition: 'first',
         viewer: true,
+    },
+    delayHydration: {
+        // enables nuxt-delay-hydration in dev mode for testing
+        debug: process.env.NODE_ENV === 'development'
     }
 
 })

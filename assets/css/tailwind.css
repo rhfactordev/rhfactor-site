@@ -32,6 +32,20 @@ P {
 }
 
 /**
+  Alerts
+ */
+.alert{
+    @apply border p-5 w-full my-4 mx-auto rounded-lg;
+
+    &.error{
+        @apply bg-red-200 border-red-300;
+    }
+    &.success{
+        @apply bg-green-200 border-green-500;
+    }
+}
+
+/**
  Formulários
  */
 
@@ -47,6 +61,9 @@ P {
     @apply bg-teal-300 p-2 text-white shadow-lg shadow-gray-300 rounded-sm;
     &:hover {
         @apply bg-teal-400;
+    }
+    &:disabled{
+        @apply bg-teal-900 text-gray-400;
     }
 }
 

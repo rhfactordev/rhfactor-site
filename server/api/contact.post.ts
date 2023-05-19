@@ -8,7 +8,7 @@ export default defineEventHandler(async (event) => {
         throw Error("O e-mail é obrigatório.")
     }
 
-    await new Promise(resolve => setTimeout(resolve, 400));
+    // await new Promise(resolve => setTimeout(resolve, 400));
 
     return body
 })

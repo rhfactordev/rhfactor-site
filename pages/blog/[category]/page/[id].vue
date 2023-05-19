@@ -9,10 +9,21 @@ const route = useRoute()
 const page = computed(()=> route.params.id >= 1 ? route.params.id : 1 )
 const categorySource = route.params.category
 
-const { data } = await useFetch('/api/blog')
+const serverUrl = computed(()=>{
+  let base = `/api/blog?page=${page.value}&limit=6`
+  if( categorySource ){
+    base += `&category=${categorySource}`
+  }
+  return base
+})
+
+const { data } = await useFetch(serverUrl.value)
 const categories = data.value.categories
 const posts = data.value.posts
 const categoryName = computed(()=>{
+  if( hasCategory.value ){
+    return categories.filter(it=>it.source == categorySource)[0].name
+  }
   return "Blog"
 })
 
@@ -40,7 +51,7 @@ useServerSeoMeta(metas)
 <template>
   <main class="grid grid-cols-4 gap-0">
     <e-title class="col-span-4">
-      {{ hasCategory ? categorySource : 'Blog'  }}
+      {{ hasCategory ? categoryName : 'Blog'  }}
     </e-title>
     <div class="col-span-4 md:col-span-3 p-4">
       <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
@@ -59,7 +70,7 @@ useServerSeoMeta(metas)
       </div>
     </div>
     <aside class="col-span-4 md:col-span-1">
-      <div class="md:sticky top-0">
+      <div class="md:sticky top-10">
         <blog-category :categories="categories" />
       </div>
     </aside>

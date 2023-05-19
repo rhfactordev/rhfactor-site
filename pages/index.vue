@@ -1,9 +1,8 @@
 <script setup>
 import BlogCard from "~/components/elements/BlogCard.vue";
-import Slider from "~/components/elements/Slider.vue";
 import {useNuxtApp} from "#app";
 
-const { data } = await useFetch('/api/blog')
+const { data } = await useFetch('/api/blog?limit=3')
 const posts = data.value.posts
 
 const site = useNuxtApp().site

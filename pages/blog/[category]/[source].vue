@@ -7,8 +7,8 @@ const route = useRoute()
 const pageSource = computed(()=> route.params.source )
 const categorySource = route.params.category
 
-const { data } = await useFetch('/api/blog', {
-  method: 'POST',
+const { data } = await useFetch('/api/blog/post', {
+  method: 'GET',
   body: {
     category : categorySource,
     page : pageSource

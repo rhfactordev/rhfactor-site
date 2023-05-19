@@ -13,6 +13,9 @@ const site = useNuxtApp().site
         <li class="inline-flex items-center">
           <nuxt-link class="hover:text-emerald-900" to="/login">Login</nuxt-link>
         </li>
+        <li class="inline-flex items-center">
+          <nuxt-link class="hover:text-emerald-900" to="/carrinho">Carrinho</nuxt-link>
+        </li>
       </ul>
     </div>
     <div class="flex-auto">

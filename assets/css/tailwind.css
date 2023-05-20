@@ -28,7 +28,7 @@ h6 {
 }
 
 P {
-    @apply font-sans font-normal text-sm
+    @apply font-sans font-normal text-sm mb-4 space-y-4
 }
 
 /**

@@ -13,9 +13,31 @@ const meta = {
 
 useSeoMeta(meta)
 useServerSeoMeta(meta)
+
+const loading = ref(true)
+
+const refreshCart = async () => {
+  loading.value = true
+  const { items } = await useFetch('/api/cart')
+  loading.value = false
+}
+
+onMounted(()=>{
+  refreshCart()
+})
+
 </script>
 <template>
   <main class="p-10 my-10">
     <e-title>Carrinho</e-title>
+
+    <div v-if="loading">
+      Aguarde, carregando!
+    </div>
+
+    <div v-else>
+
+    </div>
+
   </main>
 </template>

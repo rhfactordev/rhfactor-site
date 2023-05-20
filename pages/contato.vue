@@ -16,7 +16,6 @@ const metas = {
 useSeoMeta(metas)
 useServerSeoMeta(metas)
 
-
 const showMessage = ref(false)
 const contactFormStatus = ref({})
 const contactFormPending = ref(false)

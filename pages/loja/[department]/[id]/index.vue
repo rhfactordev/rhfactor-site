@@ -36,7 +36,13 @@ const addToCart = () =>{
     <div class="p-5">
       <div class="grid grid-cols-1 md:grid-cols-4 gap-2 max-w-5xl mx-auto">
         <div class="md:col-span-3 p-5 bg-white shadow">
-          <img :src="product.image" :alt="`Foto do ${product.name}`">
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+            <img :src="product.image" :alt="`Foto do ${product.name}`">
+            <div>
+              <h1 class="text-lg mb-5 text-neutral-700">{{product.name}}</h1>
+              <div v-html="product.description"></div>
+            </div>
+          </div>
         </div>
         <div class="p-5 bg-white shadow">
           <p class="text-3xl font-bold mb-0">R$ {{product.price}}</p>

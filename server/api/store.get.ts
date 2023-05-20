@@ -24,11 +24,11 @@ export default defineEventHandler(async (event) => {
                 department: `${ department ? `${department}` : 'sem-categoria' }`,
                 departmentName: `${ department ? `${department}` : 'Sem Categoria' }`,
                 source: `departamento-${i}`,
-                target: `/loja/${ department ? `${department}` : 'sem-categoria' }/${i}`,
-                image: `https://picsum.photos/id/${i*10}/400/200`,
+                target: `/loja/${ department ? `${department}` : 'sem-categoria' }/${i}/source-${i}`,
+                image: `https://picsum.photos/id/${i*10}/674/338`,
                 description: "descrição do produto que vem aqui como um parafago mas não é com html",
                 content: `<p>Conteúdo em html do produto ${i}</p>`,
-                price: 45.9
+                price: 45.9 * i+1
             }
         )
     }

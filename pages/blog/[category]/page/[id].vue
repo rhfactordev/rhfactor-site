@@ -38,8 +38,8 @@ const path = computed(()=>{
 
 const site = useNuxtApp().site
 const metas = {
-  title: `${categoryName.value} - ${site.title}`,
-  ogTitle: `${categoryName.value} - ${site.title}`,
+  title: `${categoryName.value}`,
+  ogTitle: `${categoryName.value}`,
   description: site.description,
   ogDescription: site.description,
   ogImage: site.image

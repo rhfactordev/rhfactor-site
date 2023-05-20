@@ -24,9 +24,9 @@ defineProps(["description", "phone", "email"])
 
 
         <div class="hidden md:block">
-          <h6 class="mb-4 flex justify-center font-semibold uppercase md:justify-start">
+          <h3 class="mb-4 flex justify-center font-semibold uppercase md:justify-start">
             Serviços Digitais
-          </h6>
+          </h3>
           <p class="mb-4">
             <nuxt-link class="hover:text-teal-800 text-neutral-50" to="/loja/mapas/mapa-natal">Mapa Natal</nuxt-link>
           </p>
@@ -39,9 +39,9 @@ defineProps(["description", "phone", "email"])
         </div>
 
         <div class="hidden md:block">
-          <h6 class="mb-4 flex justify-center font-semibold uppercase md:justify-start">
+          <h3 class="mb-4 flex justify-center font-semibold uppercase md:justify-start">
             Links Rápidos
-          </h6>
+          </h3>
           <p class="mb-4">
             <nuxt-link class="hover:text-teal-800 text-neutral-50" to="/sobre-mim">Sobre mim</nuxt-link>
           </p>
@@ -58,9 +58,9 @@ defineProps(["description", "phone", "email"])
 
 
         <div>
-          <h6 class="mb-4 flex justify-center font-semibold uppercase md:justify-start">
+          <h3 class="mb-4 flex justify-center font-semibold uppercase md:justify-start">
             Contato
-          </h6>
+          </h3>
           <p class="mb-4 flex items-center justify-center md:justify-start">
             {{phone}}
           </p>

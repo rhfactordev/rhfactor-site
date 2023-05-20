@@ -6,8 +6,8 @@ import Alert from "~/components/elements/Alert.vue";
 const site = useNuxtApp().site
 
 const metas = {
-  title: `Contato - ${site.title}`,
-  ogTitle: `Contato - ${site.title}`,
+  title: `Contato`,
+  ogTitle: `Contato`,
   description: `Entre em contato conosco pelo e-mail ${site.email} ou pelo whatsapp ${site.phone}`,
   ogDescription: `Entre em contato conosco pelo e-mail ${site.email} ou pelo whatsapp ${site.phone}`,
   ogImage: site.image

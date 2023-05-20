@@ -12,8 +12,8 @@ const service = {
 
 const site = useNuxtApp().site
 const meta = {
-  title: `${service.name} - ${site.title}`,
-  ogTitle: `${service.name} - ${site.title}`,
+  title: `${service.name}`,
+  ogTitle: `${service.name}`,
   description: service.description,
   ogDescription: service.description,
   ogImage: service.image

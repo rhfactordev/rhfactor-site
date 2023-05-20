@@ -24,8 +24,8 @@ const post = data.value.post
 
 const site = useNuxtApp().site
 const meta = {
-  title: `${post.name} - ${site.title}`,
-  ogTitle: `${post.name} - ${site.title}`,
+  title: `${post.name}`,
+  ogTitle: `${post.name}`,
   description: post.description,
   ogDescription: post.description,
   ogImage: post.image

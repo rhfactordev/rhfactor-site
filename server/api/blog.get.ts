@@ -30,7 +30,7 @@ export default defineEventHandler(async (event) => {
                     source: `categoria-${i}`,
                     date: "20/12/2023 10:22h",
                     target: `/blog/${ category ? `${category}` : 'sem-categoria' }/${i}`,
-                    image: `https://picsum.photos/id/${i*10}/400/200`,
+                    image: `https://picsum.photos/id/${i*10}/674/338`,
                     description: "descrição do post que vem aqui como um parafago mas não é com html",
                     content: `<p>Conteúdo em html do post ${i}</p>`
                 }
@@ -43,7 +43,7 @@ export default defineEventHandler(async (event) => {
                 source: `${ category ? `${category} ` : 'sem-categoria' }`,
                 date: "20/12/2023 10:22h",
                 target: `/blog/${ category ? `${category}` : 'sem-categoria' }/${i}`,
-                image: `https://picsum.photos/id/${i}/400/200`,
+                image: `https://picsum.photos/id/${i}/674/338`,
                 description: "descrição do post que vem aqui como um parafago mas não é com html",
                 content: `<p>Conteúdo em html do post ${post}</p>`
             }

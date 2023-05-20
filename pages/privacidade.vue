@@ -7,8 +7,8 @@ const terms = data.value.terms
 
 const site = useNuxtApp().site
 const metas = {
-  title: `Politica de privacidade - ${site.title}`,
-  ogTitle: `Politica de privacidade- ${site.title}`,
+  title: `Politica de privacidade`,
+  ogTitle: `Politica de privacidade`,
   description: `Leia a Politica de privacidade do site ${site.title}`,
   ogDescription: `Leia  a Politica de privacidade do site ${site.title}`,
   ogImage: site.image

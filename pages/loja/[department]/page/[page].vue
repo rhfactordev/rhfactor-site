@@ -37,8 +37,8 @@ const department = computed(()=>{
 
 const site = useNuxtApp().site
 const meta = {
-  title: `${department.value.name} - ${site.title}`,
-  ogTitle: `${department.value.name} - ${site.title}`,
+  title: `${department.value.name}`,
+  ogTitle: `${department.value.name}`,
   description: department.value.description,
   ogDescription: department.value.description,
   ogImage: department.value.image

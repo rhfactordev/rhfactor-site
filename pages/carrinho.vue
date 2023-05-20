@@ -4,8 +4,8 @@ import ETitle from "~/components/elements/ETitle.vue";
 
 const site = useNuxtApp().site
 const meta = {
-  title: `Carrinho de compras - ${site.title}`,
-  ogTitle: `Carrinho de compras - ${site.title}`,
+  title: `Carrinho de compras`,
+  ogTitle: `Carrinho de compras`,
   description: site.description,
   ogDescription: site.description,
   ogImage: site.image

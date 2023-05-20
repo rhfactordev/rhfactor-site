@@ -7,8 +7,8 @@ const terms = data.value.terms
 
 const site = useNuxtApp().site
 const metas = {
-  title: `Termos de uso do site - ${site.title}`,
-  ogTitle: `Termos de uso do site- ${site.title}`,
+  title: `Termos de uso do site`,
+  ogTitle: `Termos de uso do site`,
   description: `Leia os termos de uso do site ${site.title}`,
   ogDescription: `Leia os termos de uso do site ${site.title}`,
   ogImage: site.image

@@ -2,6 +2,13 @@
 import {useNuxtApp} from "#app";
 
 const site = useNuxtApp().site
+
+useServerHead({
+  titleTemplate: `%s - ${site.title}`,
+  htmlAttrs : {
+    lang : 'pt-BR'
+  }
+})
 </script>
 <template>
   <div class="bg-teal-400 flex justify-between text-sm text-white font-serif font-medium">

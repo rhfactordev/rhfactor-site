@@ -3,8 +3,8 @@ import {useNuxtApp} from "#app";
 
 const site = useNuxtApp().site
 const meta = {
-  title: `Recuperar senha - ${site.title}`,
-  ogTitle: `Recuperar senha - ${site.title}`,
+  title: `Recuperar senha`,
+  ogTitle: `Recuperar senha`,
   description: site.description,
   ogDescription: site.description,
   ogImage: site.image

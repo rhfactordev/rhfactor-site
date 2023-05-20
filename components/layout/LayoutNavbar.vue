@@ -38,9 +38,11 @@
           <li>
             <nuxt-link @click="closeDropdown" to="/loja" class="link" exact-active-class="text-teal-900">Loja</nuxt-link>
           </li>
+          <!--
           <li>
             <nuxt-link @click="closeDropdown" to="/servicos" class="link" exact-active-class="text-teal-900">Serviços</nuxt-link>
           </li>
+          -->
           <!--
           <li>
             <button @click="dropdownState=!dropdownState" id="mega-menu-full-dropdown-button" data-collapse-toggle="mega-menu-full-dropdown" class="flex items-center justify-between w-full link-style">

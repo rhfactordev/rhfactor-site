@@ -7,8 +7,8 @@ const posts = data.value.posts
 
 const site = useNuxtApp().site
 const meta = {
-  title: site.title,
-  ogTitle: site.title,
+  title: "Home",
+  ogTitle: "Home",
   description: site.description,
   ogDescription: site.description,
   ogImage: site.image
@@ -20,6 +20,8 @@ useServerSeoMeta(meta)
 
 <template>
   <main>
+
+    <h1>{{site.name}}</h1>
 
     <section class="p-10 bg-teal-50">
       <h2 class="title">Últimos posts</h2>

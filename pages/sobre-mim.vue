@@ -4,8 +4,8 @@ import {useNuxtApp} from "#app";
 
 const site = useNuxtApp().site
 const metas = {
-  title: `Sobre - ${site.title}`,
-  ogTitle: `Sobre - ${site.title}`,
+  title: `Sobre`,
+  ogTitle: `Sobre`,
   description: site.description,
   ogDescription: site.description,
   ogImage: site.image

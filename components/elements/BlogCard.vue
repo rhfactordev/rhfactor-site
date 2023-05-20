@@ -6,9 +6,9 @@
   <div class="card">
     <img class="card-image" :src="image" :alt="name" />
     <p class="card-date">{{date}}</p>
-    <h3 class="title">
+    <h2 class="title">
       <nuxt-link class="hover:text-teal-500" :to="target">{{name}}</nuxt-link>
-    </h3>
+    </h2>
     <p class="content">
       {{description}}
     </p>

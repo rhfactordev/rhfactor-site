@@ -45,5 +45,6 @@ useServerHead({
   <layout-footer :description="site.description"
                  :phone="site.phone"
                  :email="site.email"
+                 :social="site.social"
   />
 </template>

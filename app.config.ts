@@ -17,5 +17,9 @@ export default defineAppConfig({
         '/privacidade': {static: true},
         '/sobre-mim': {static: true},
         '/termos-de-uso': {static: true},
-    }
+    },
+    nuxtIcon: {
+        size: '24px',
+        class: 'icon',
+    },
 })

@@ -6,6 +6,26 @@ export default defineNuxtPlugin(async (nuxtApp) => {
         layout: 'default',
         phone: '15 99999-4444',
         whatsapp: '+55 11 99999-4444',
-        email: 'contato@andrezaastrologia.com.br'
+        email: 'contato@andrezaastrologia.com.br',
+        social : [
+            {
+                name : 'Facebook',
+                target : '',
+                icon : 'ri:facebook-fill'
+            },
+            {
+                name : 'Youtube',
+                target: '',
+                icon : 'ri:youtube-fill',
+            },
+            {
+                name: 'Linkedin',
+                target: '',
+                icon : 'ri:linkedin-fill'
+            }
+
+        ]
+
+
     }
 })

@@ -1,5 +1,5 @@
 <script setup>
-defineProps(["description", "phone", "email"])
+defineProps(["description", "phone", "email", "social"])
 </script>
 
 <template>
@@ -9,7 +9,7 @@ defineProps(["description", "phone", "email"])
       <div class="mr-12 hidden lg:block">
         <span>Conecte-se comigo através das redes sociais:</span>
       </div>
-      <layout-social />
+      <layout-social :social="social" />
     </div>
 
 

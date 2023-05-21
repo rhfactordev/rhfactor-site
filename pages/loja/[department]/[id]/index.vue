@@ -4,6 +4,7 @@ import BlogCategory from "~/components/elements/BlogCategory.vue";
 import ETitle from "~/components/elements/ETitle.vue";
 
 const route = useRoute()
+const expand = ref(true)
 const quantity = ref(1)
 const departmentSource = computed(()=> route.params.department )
 const productId = computed(()=> route.params.id )
@@ -38,24 +39,31 @@ const addToCart = () =>{
         <div class="md:col-span-3 p-5 bg-white shadow">
           <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
             <img :src="product.image" :alt="`Foto do ${product.name}`">
-            <div>
+            <div class="mb-4">
               <h1 class="text-lg mb-5 text-neutral-700">{{product.name}}</h1>
-              <div v-html="product.description"></div>
+              <div class="border-b-1" :class="{ 'overflow-hidden' : expand , 'h-80' : expand }" >
+                <div v-html="product.description"></div>
+              </div>
+              <div class="my-5 border drop-shadow p-1 text-center text-teal-400" @click="expand=!expand" >
+                {{ expand ? 'Ler mais' : 'Recolher' }}
+              </div>
             </div>
           </div>
         </div>
         <div class="p-5 bg-white shadow">
-          <p class="text-3xl font-bold mb-0">R$ {{product.price}}</p>
-          <p>No cartão de crédito</p>
-          <div class="hidden md:block">
-            <hr class="mb-4"/>
-            <p class="mb-3">Em até 10x no cartão de crédito</p>
-            <button type="button" class="w-full btn">Comprar</button>
+          <div class=" sticky top-20">
+            <p class="text-3xl font-bold mb-0">R$ {{product.price}}</p>
+            <p>No cartão de crédito</p>
+            <div class="hidden md:block">
+              <hr class="mb-4"/>
+              <p class="mb-3">Em até 10x no cartão de crédito</p>
+              <button type="button" class="w-full btn">Comprar</button>
+            </div>
           </div>
         </div>
       </div>
     </div>
-    <div class="sticky bottom-0 md:hidden p-5 bg-white">
+    <div class="sticky border-t-4 border-neutral-200 bottom-0 md:hidden p-5 bg-white">
       <p class="text-lg font-bold mb-0">R$ {{product.price}}</p>
       <p class="mb-3">Em até 10x no cartão de crédito</p>
       <button type="button" class="w-full btn">Comprar</button>

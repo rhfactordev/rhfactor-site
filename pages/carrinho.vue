@@ -74,8 +74,8 @@ onMounted(() => {
             <div class="flex mt-10 mb-5">
               <h3 class="font-semibold text-gray-600 text-xs uppercase w-2/5">Item</h3>
               <h3 class="font-semibold text-center text-gray-600 text-xs uppercase w-1/5 text-center">Quantidade</h3>
-              <h3 class="font-semibold text-center text-gray-600 text-xs uppercase w-1/5 text-center">Preço</h3>
-              <h3 class="font-semibold text-center text-gray-600 text-xs uppercase w-1/5 text-center">Total</h3>
+              <h3 class="hidden md:block md:w-1/5 font-semibold text-center text-gray-600 text-xs uppercase text-center">Preço</h3>
+              <h3 class="font-semibold mx-auto text-center text-gray-600 text-xs uppercase w-1/5 text-center">Total</h3>
             </div>
 
             <div v-for="({id, name, quantity, price, total, target},index) in cart.items" :key="index" class="flex items-center hover:bg-gray-100 -mx-8 px-6 py-5">
@@ -98,8 +98,8 @@ onMounted(() => {
                   <Icon name="typcn:plus-outline" />
                 </button>
               </div>
-              <span class="text-center w-1/5 font-semibold text-sm">R${{ price }}</span>
-              <span class="text-center w-1/5 font-semibold text-sm">R${{ total }}</span>
+              <span class="hidden md:block md:w-1/5 text-center font-semibold text-sm">R${{ price }}</span>
+              <span class="text-center mx-auto w-1/5 font-semibold text-sm">R${{ total }}</span>
             </div>
 
           </div>

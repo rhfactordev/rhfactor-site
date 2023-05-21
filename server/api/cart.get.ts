@@ -7,7 +7,7 @@ export default defineEventHandler(async (event) => {
     for (let i = 0; i < 5; i++) {
         items.push(
             {
-                name: `Item ${i}`,
+                name: `Item ${i} - Mapa astral digital muitos caracteres`,
                 price: 12.3,
                 quantity: i,
                 total: 43.2,

@@ -40,7 +40,7 @@ const addToCart = () =>{
           <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
             <img :src="product.image" :alt="`Foto do ${product.name}`">
             <div class="mb-4">
-              <h1 class="text-lg mb-5 text-neutral-700">{{product.name}}</h1>
+              <h1 class="text-lg mb-5 text-teal-600">{{product.name}}</h1>
               <div class="border-b-1" :class="{ 'overflow-hidden' : expand , 'h-80' : expand }" >
                 <div v-html="product.description"></div>
               </div>
@@ -50,7 +50,7 @@ const addToCart = () =>{
             </div>
           </div>
         </div>
-        <div class="p-5 bg-white shadow">
+        <div class="p-5 bg-white shadow mb-4">
           <div class=" sticky top-20">
             <p class="text-3xl font-bold mb-0">R$ {{product.price}}</p>
             <p>No cartão de crédito</p>
@@ -60,6 +60,17 @@ const addToCart = () =>{
               <button type="button" class="w-full btn">Comprar</button>
             </div>
           </div>
+        </div>
+        <h2 class="my-4">Ficha Técnica</h2>
+        <div class="col-span-full p-5 bg-white shadow mb-4">
+          <table class="border w-full">
+            <tbody>
+              <tr v-for="({key,value},index) in product.properties" :key="index" :class="{ 'bg-neutral-100' : index % 2 }">
+                <td class="p-2 border-r-1">{{key}}</td>
+                <td class="p-2">{{ value }}</td>
+              </tr>
+            </tbody>
+          </table>
         </div>
       </div>
     </div>

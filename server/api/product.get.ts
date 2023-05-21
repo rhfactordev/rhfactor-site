@@ -19,9 +19,7 @@ export default defineEventHandler(async (event) => {
         }
     }
 
-   await new Promise(resolve => setTimeout(resolve, 200));
-
-
+   // await new Promise(resolve => setTimeout(resolve, 200));
 
     return {
         product : {
@@ -38,7 +36,12 @@ export default defineEventHandler(async (event) => {
                 "<p>Alternando entre os pontos de vista de Atlas e Lily, <em>É assim que começa</em> retoma logo após o epílogo de <em>É assim que acaba</em>. Revelando mais sobre o passado de Atlas e acompanhando a jornada de Lily para abraçar a sua segunda chance, no amor enquanto lida com um ex-marido ciumento, <em>É assim que começa</em> prova que ninguém entrega uma leitura mais emocionante do que Colleen Hoover.</p>\n" +
                 "<p>&nbsp;</p>\n" +
                 "<p>“Em uma história permeada de tensão com lampejos de esperança, Hoover captura perfeitamente as dores de um coração partido e a felicidade de começar de novo.” - <em>Kirkus Review</em></p></div>",
-            price: 45.9 * id+1
+            price: 45.9 * id+1,
+            properties : [
+                { key : "Formato" , value : "Digital - acesso online" },
+                { key : "Prazo de entrega" , value : "Até 5 dias úteis" },
+                { key : "Quantidade" , value : "24 posicionamentos astrológicos" },
+            ]
         },
         departments,
     }

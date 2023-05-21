@@ -62,6 +62,11 @@
           <li>
             <nuxt-link @click="closeDropdown" to="/contato" class="link" exact-active-class="text-teal-900">Contato</nuxt-link>
           </li>
+          <li class="md:hidden mb-3">
+            <nuxt-link @click="closeDropdown" to="/carrinho" class="link" exact-active-class="text-teal-900">
+              Carrinho
+            </nuxt-link>
+          </li>
           <li class="md:hidden">
             <nuxt-link @click="closeDropdown" to="/login" class="link bg-teal-500" exact-active-class="text-teal-900">Acessar minha conta</nuxt-link>
           </li>
@@ -98,7 +103,7 @@
 <style scoped lang="postcss">
 
 .link-style {
-  @apply p-2 font-light text-white md:text-teal-900 rounded hover:bg-teal-800 md:hover:bg-transparent md:hover:text-teal-700;
+  @apply py-2 px-4 font-light text-white md:text-teal-900 rounded hover:bg-teal-800 md:hover:bg-transparent md:hover:text-teal-700;
 }
 
 .link {

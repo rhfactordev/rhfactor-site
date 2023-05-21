@@ -1,6 +1,7 @@
 export default defineEventHandler(async (event) => {
 
     const items = []
+    const total = 400;
 
     // @ts-ignore
     for (let i = 0; i < 5; i++) {
@@ -8,14 +9,18 @@ export default defineEventHandler(async (event) => {
             {
                 name: `Item ${i}`,
                 price: 12.3,
-                quantity: i
+                quantity: i,
+                total: 43.2,
+                image: `https://picsum.photos/id/${i*10}/674/338`,
+                target: `/loja/departamento-${i*10}/${i}/nome-do-produto`
             }
         )
     }
 
-    await new Promise(resolve => setTimeout(resolve, 200));
+    await new Promise(resolve => setTimeout(resolve, 500));
 
     return {
         items,
+        total
     }
 })

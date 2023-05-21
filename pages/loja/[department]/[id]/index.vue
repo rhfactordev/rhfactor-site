@@ -3,7 +3,9 @@ import {useNuxtApp} from "#app";
 import BlogCategory from "~/components/elements/BlogCategory.vue";
 import ETitle from "~/components/elements/ETitle.vue";
 
+const router = useRouter()
 const route = useRoute()
+const loading = ref(false)
 const expand = ref(true)
 const quantity = ref(1)
 const departmentSource = computed(()=> route.params.department )
@@ -27,8 +29,31 @@ const meta = {
 useSeoMeta(meta)
 useServerSeoMeta(meta)
 
-const addToCart = () =>{
 
+const addToCart = async () =>{
+  if( loading.value ){
+    return
+  }
+  loading.value = true
+  const { data : response , error } = await useFetch('/api/cart',{
+    method: 'POST',
+    body: {
+      product : product.id,
+      quantity: 1
+    },
+    // onResponseError({ response }) {
+    //   console.log('Deu erro' )
+    // },
+    watch: false
+  })
+  loading.value = false
+
+  if( error.value ){
+    alert( "Ops, não deu para adicionar esse produto ao carrinho!" )
+    return
+  }
+
+  router.push('/carrinho')
 }
 </script>
 
@@ -57,7 +82,7 @@ const addToCart = () =>{
             <div class="hidden md:block">
               <hr class="mb-4"/>
               <p class="mb-3">Em até 10x no cartão de crédito</p>
-              <button type="button" class="w-full btn">Comprar</button>
+              <button @click="addToCart" :disabled="loading" type="button" class="w-full btn">Comprar</button>
             </div>
           </div>
         </div>
@@ -77,7 +102,7 @@ const addToCart = () =>{
     <div class="sticky border-t-4 border-neutral-200 bottom-0 md:hidden p-5 bg-white">
       <p class="text-lg font-bold mb-0">R$ {{product.price}}</p>
       <p class="mb-3">Em até 10x no cartão de crédito</p>
-      <button type="button" class="w-full btn">Comprar</button>
+      <button @click="addToCart" :disabled="loading" type="button" class="w-full btn">Comprar</button>
     </div>
   </main>
 </template>

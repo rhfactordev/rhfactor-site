@@ -23,6 +23,7 @@ export default defineEventHandler(async (event) => {
 
     return {
         product : {
+            id,
             name: `Produto ${id} do departamento ${department}`,
             department: `${ department ? `${department}` : 'sem-categoria' }`,
             departmentName: `${ department ? `${department}` : 'Sem Categoria' }`,

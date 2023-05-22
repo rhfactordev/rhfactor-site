@@ -45,9 +45,11 @@ const showPasswordIcon = computed(()=> showPassword.value ? 'mdi:eye-off' : 'mdi
         </div>
         <button class="btn w-full" type="submit">Login</button>
       </form>
+      <!--
       <div class="my-4 text-center">
         <nuxt-link class="text-sm hover:text-teal-600" to="/cadastro">Não tem uma conta? Clique aqui!</nuxt-link>
       </div>
+      -->
     </div>
 
   </main>

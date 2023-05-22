@@ -1,5 +1,6 @@
 <script setup>
-defineProps(["description", "phone", "email", "social"])
+const props = defineProps(["title", "document", "services", "links", "description", "phone", "email", "social", "logo"])
+const hasLinks = computed(()=>  props.links.length > 0 )
 </script>
 
 <template>
@@ -16,46 +17,31 @@ defineProps(["description", "phone", "email", "social"])
     <div class="px-6 py-10 text-center md:text-left text-sm">
       <div class="grid-1 grid gap-8 md:grid-cols-2 lg:grid-cols-4">
         <div>
-          <img class="w-96 m-auto" src="https://www.andrezaastrologia.com.br/andrezaastrologia-logo-alpha.png" alt="Logo Site">
+          <img class="w-96 m-auto" :src="logo" :alt="`Logo ${title}`">
           <p class="mx-4 hidden md:block">
             {{description}}
           </p>
+          <p>CNPJ {{ document }}</p>
         </div>
 
 
-        <div class="hidden md:block">
+        <div class="hidden md:block" :class="{ 'col-span-2' : !hasLinks }"  >
           <h3 class="mb-4 flex justify-center font-semibold uppercase md:justify-start">
             Serviços Digitais
           </h3>
-          <p class="mb-4">
-            <nuxt-link class="hover:text-teal-800 text-neutral-50" to="/loja/mapas/mapa-natal">Mapa Natal</nuxt-link>
-          </p>
-          <p class="mb-4">
-            <nuxt-link class="hover:text-teal-800 text-neutral-50" to="/loja/mapas/mapa-vocacional">Mapa Vocacional</nuxt-link>
-          </p>
-          <p class="mb-4">
-            <nuxt-link class="hover:text-teal-800 text-neutral-50" to="/loja/assinaturas/transitos-astrologicos">Trânsitos astrológicos</nuxt-link>
+          <p v-for="({target,name},index) in services" :key="index" class="mb-4">
+            <nuxt-link class="hover:text-teal-800 text-neutral-50" :to="target">{{ name }}</nuxt-link>
           </p>
         </div>
 
-        <div class="hidden md:block">
+        <div v-if="hasLinks" class="hidden md:block">
           <h3 class="mb-4 flex justify-center font-semibold uppercase md:justify-start">
             Links Rápidos
           </h3>
-          <p class="mb-4">
-            <nuxt-link class="hover:text-teal-800 text-neutral-50" to="/sobre-mim">Sobre mim</nuxt-link>
-          </p>
-          <p class="mb-4">
-            <nuxt-link class="hover:text-teal-800 text-neutral-50" to="/contato">Fale comigo</nuxt-link>
-          </p>
-          <p class="mb-4">
-            <nuxt-link class="hover:text-teal-800 text-neutral-50" to="/servicos/atendimentos-presenciais">Atendimentos presenciais</nuxt-link>
-          </p>
-          <p>
-            <nuxt-link class="hover:text-teal-800 text-neutral-50" to="/servicos">Serviços</nuxt-link>
+          <p v-for="({target,name},index) in links" :key="index" class="mb-4">
+            <nuxt-link class="hover:text-teal-800 text-neutral-50" :to="target">{{ name }}</nuxt-link>
           </p>
         </div>
-
 
         <div>
           <h3 class="mb-4 flex justify-center font-semibold uppercase md:justify-start">

@@ -32,13 +32,13 @@
           <li>
             <nuxt-link @click="closeDropdown" to="/" class="link" exact-active-class="text-teal-900 ">Home</nuxt-link>
           </li>
+          <!--
           <li class="md:hidden">
             <nuxt-link @click="closeDropdown" to="/cadastro" class="link" exact-active-class="text-teal-900">Cadastro</nuxt-link>
           </li>
           <li>
             <nuxt-link @click="closeDropdown" to="/loja" class="link" exact-active-class="text-teal-900">Loja</nuxt-link>
           </li>
-          <!--
           <li>
             <nuxt-link @click="closeDropdown" to="/servicos" class="link" exact-active-class="text-teal-900">Serviços</nuxt-link>
           </li>
@@ -62,11 +62,13 @@
           <li>
             <nuxt-link @click="closeDropdown" to="/contato" class="link" exact-active-class="text-teal-900">Contato</nuxt-link>
           </li>
+          <!--
           <li class="md:hidden mb-3">
             <nuxt-link @click="closeDropdown" to="/carrinho" class="link" exact-active-class="text-teal-900">
               Carrinho
             </nuxt-link>
           </li>
+          -->
           <li class="md:hidden">
             <nuxt-link @click="closeDropdown" to="/login" class="link bg-teal-500" exact-active-class="text-teal-900">Acessar minha conta</nuxt-link>
           </li>

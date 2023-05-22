@@ -63,7 +63,8 @@ const handleSubmit = async ( event ) => {
   <e-title>Contato</e-title>
   <section class="md:w-8/12 mx-auto mb-6">
     <div class="flex flex-wrap">
-      <div class="w-full md:order-2 mb-5 p-5 md:w-5/12 border border-gray-200">
+      <!--  md:w-5/12    -->
+      <div class="w-full md:order-2 mb-5 p-5 border border-gray-200">
         <div class="p-5">
           <h4>Telefone</h4>
           <p>{{ site.phone }}</p>
@@ -78,7 +79,7 @@ const handleSubmit = async ( event ) => {
           <p><a :href="`mailto:{{ site.email }}`">{{ site.email }}</a></p>
         </div>
       </div>
-      <div class="w-full mb-5 md:w-7/12 p-5">
+      <div v-if="false" class="w-full mb-5 md:w-7/12 p-5">
         <h2 class="mb-6">Formulário de contato</h2>
         <alert v-if="showMessage" :type="contactFormStatus.type">
           <p>{{ contactFormStatus.message }}</p>

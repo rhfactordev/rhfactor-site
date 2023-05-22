@@ -6,7 +6,5 @@
 
 <script setup>
 import {useNuxtApp} from "#app";
-
 const {layout} = useNuxtApp().site
-
 </script>

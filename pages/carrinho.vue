@@ -24,11 +24,14 @@ const cart = ref({
 const loading = ref(false)
 const refreshCart = async () => {
   if( loading.value ){
+    console.log('refreshCart - existing...')
     return
   }
+  console.log('refreshCart - starting...')
   loading.value = true
   const { data: responseCart } = await useFetch('/api/cart')
   loading.value = false
+  console.log('refreshCart - done...')
   cart.value = responseCart.value
 }
 
@@ -58,24 +61,24 @@ onMounted(() => {
 
 </script>
 <template>
-  <main class="bg-gray-100 p-5">
-    <div class="container mx-auto mt-10">
+  <main class="bg-gray-100 md:p-5">
+    <div class="container mx-auto md:mt-10">
       <e-title>Carrinho</e-title>
-      <div class="mx-5">
+      <div class="md:mx-5">
         <div class="grid grid-cols-1 md:grid-cols-3 gap-2 mb-4">
           <div class="bg-white md:col-span-2 p-5 shadow-md rounded-lg">
 
             <div class="flex flex-row-reverse">
-              <button :disabled="loading" type="button" class="btn p-1" @click="refreshCart">
+              <button type="button" :disabled="loading" class="btn p-1" @click="refreshCart">
                 <Icon name="mdi:refresh" />
               </button>
             </div>
 
             <div class="flex mt-10 mb-5">
               <h3 class="font-semibold text-gray-600 text-xs uppercase w-2/5">Item</h3>
-              <h3 class="font-semibold text-center text-gray-600 text-xs uppercase w-1/5 text-center">Quantidade</h3>
-              <h3 class="hidden md:block md:w-1/5 font-semibold text-center text-gray-600 text-xs uppercase text-center">Preço</h3>
-              <h3 class="font-semibold mx-auto text-center text-gray-600 text-xs uppercase w-1/5 text-center">Total</h3>
+              <h3 class="font-semibold text-center text-gray-600 text-xs uppercase w-1/5">Quantidade</h3>
+              <h3 class="hidden md:block md:w-1/5 font-semibold text-center text-gray-600 text-xs uppercase">Preço</h3>
+              <h3 class="font-semibold mx-auto text-center text-gray-600 text-xs uppercase w-1/5">Total</h3>
             </div>
 
             <div v-for="({id, name, quantity, price, total, target},index) in cart.items" :key="index" class="flex items-center hover:bg-gray-100 -mx-8 px-6 py-5">

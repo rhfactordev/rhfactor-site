@@ -17,7 +17,7 @@ export default defineEventHandler(async (event) => {
         )
     }
 
-    await new Promise(resolve => setTimeout(resolve, 500));
+    // await new Promise(resolve => setTimeout(resolve, 500));
 
     return {
         items,

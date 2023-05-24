@@ -16,5 +16,8 @@
     "nuxt-delay-hydration": "^1.1.4",
     "nuxt-gtag": "^0.5.7",
     "nuxt-icon": "^0.4.1"
+  },
+  "dependencies": {
+    "@pinia/nuxt": "^0.4.11"
   }
 }

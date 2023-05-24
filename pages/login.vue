@@ -1,5 +1,8 @@
 <script setup>
 import {useNuxtApp} from "#app";
+import {useSessionStore} from "~/stores/session";
+
+const session = useSessionStore()
 
 const site = useNuxtApp().site
 const meta = {
@@ -21,6 +24,19 @@ const account = ref({
 const showPassword = ref(false)
 const inputType = computed(()=> showPassword.value ? 'text' : 'password' )
 const showPasswordIcon = computed(()=> showPassword.value ? 'mdi:eye-off' : 'mdi:eye' )
+
+const login = async ()=>{
+  session.login({
+    id : 10,
+    name : "Maria"
+  })
+}
+
+
+const sessionUser = computed(()=>{
+  return session.user
+})
+
 </script>
 <template>
   <main class="p-10 my-10">
@@ -28,7 +44,9 @@ const showPasswordIcon = computed(()=> showPassword.value ? 'mdi:eye-off' : 'mdi
     <div class="border w-full md:w-5/12 lg:w-4/12 mx-auto bg-teal-100 rounded-lg px-5 py-10">
       <h1 class="text-teal-700 text-center mb-10">Login</h1>
 
-      <form>
+      <pre>sessionUser: {{ sessionUser }}</pre>
+
+      <form @submit.prevent="login" >
         <div class="mb-3">
           <label class="hidden" for="contactFieldName">Nome</label>
           <input v-model="account.login" required type="text" aria-required="true" name="name" id="contactFieldName" class="form-control" placeholder="Digite seu e-mail.">

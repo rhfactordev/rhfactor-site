@@ -5,7 +5,8 @@ export default defineNuxtConfig({
         'nuxt-delay-hydration',
         '@nuxtjs/html-validator',
         'nuxt-gtag',
-        'nuxt-icon'
+        'nuxt-icon',
+        '@pinia/nuxt',
     ],
     tailwindcss: {
         // cssPath: '~/assets/css/tailwind.css',
@@ -19,4 +20,7 @@ export default defineNuxtConfig({
         // enables nuxt-delay-hydration in dev mode for testing
         debug: process.env.NODE_ENV === 'development'
     },
+    // webpack: {
+    //     extractCSS: true,
+    // }
 })

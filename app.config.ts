@@ -8,16 +8,6 @@ export default defineAppConfig({
         {name: "viewport", content: "width=device-width, initial-scale=1"},
         {charset: "utf-8"}
     ],
-    routeRules: {
-        '/cadastro': {static: true},
-        '/contato': {static: true},
-        '/esqueci-minha-senha': {static: true},
-        '/login': {static: true},
-        // '/loja/**': {static: true},
-        '/privacidade': {static: true},
-        '/sobre-mim': {static: true},
-        '/termos-de-uso': {static: true},
-    },
     nuxtIcon: {
         size: '24px',
         class: 'icon',

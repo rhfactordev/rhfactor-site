@@ -1,17 +1,28 @@
 import {acceptHMRUpdate, defineStore} from "pinia";
 import {useLocalStorage} from '@vueuse/core';
 
+const initialUser : User = { name : null , id : null }
+const initialUserToken : UserToken = { accessToken : null, expiresIn : null }
+
 export const useSessionStore = defineStore('session', {
     state: () => ({
-        user : useLocalStorage('user', <User>{})
+        userToken : useLocalStorage('userToken', initialUserToken) ,
+        user : useLocalStorage('user', initialUser)
     }),
     actions: {
-        login(user: User) {
-            this.user = user
+        login(userToken: UserToken) {
+            console.log('Efetuando login', userToken)
+            this.userToken = userToken
         },
     },
+    getters: {
+        isAuthenticated: (state) => state.userToken != null,
+    },
     hydrate(state, initialState) {
-        state.user = useLocalStorage('user', <User>{})
+        // @ts-ignore
+        state.userToken = useLocalStorage('userToken', initialUserToken)
+        // @ts-ignore
+        state.user = useLocalStorage('user', initialUser)
     },
 })
 

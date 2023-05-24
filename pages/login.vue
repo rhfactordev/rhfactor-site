@@ -1,8 +1,10 @@
-<script setup>
+<script setup type="ts">
 import {useNuxtApp} from "#app";
 import {useSessionStore} from "~/stores/session";
 
+
 const session = useSessionStore()
+const router = useRouter()
 
 const site = useNuxtApp().site
 const meta = {
@@ -21,17 +23,31 @@ const account = ref({
   password: ''
 })
 
+const loading = ref(false)
 const showPassword = ref(false)
 const inputType = computed(()=> showPassword.value ? 'text' : 'password' )
 const showPasswordIcon = computed(()=> showPassword.value ? 'mdi:eye-off' : 'mdi:eye' )
 
 const login = async ()=>{
-  session.login({
-    id : 10,
-    name : "Maria"
-  })
-}
+  if( loading.value ){
+    return
+  }
 
+  loading.value = true
+  const { data , error } = await useFetch('/api/login', {
+    method: 'POST',
+    watch: false,
+    body : account
+  })
+  loading.value = false
+
+  if( error.value != null ){
+    alert(error.value.data.message)
+    return
+  }
+  session.login(data.value.body)
+  router.push('/minha-conta')
+}
 
 const sessionUser = computed(()=>{
   return session.user
@@ -43,8 +59,6 @@ const sessionUser = computed(()=>{
 
     <div class="border w-full md:w-5/12 lg:w-4/12 mx-auto bg-teal-100 rounded-lg px-5 py-10">
       <h1 class="text-teal-700 text-center mb-10">Login</h1>
-
-      <pre>sessionUser: {{ sessionUser }}</pre>
 
       <form @submit.prevent="login" >
         <div class="mb-3">
@@ -61,7 +75,7 @@ const sessionUser = computed(()=>{
         <div class="mb-4">
           <nuxt-link class="text-sm hover:text-teal-600" to="/esqueci-minha-senha">Esqueceu sua senha? Clique aqui!</nuxt-link>
         </div>
-        <button class="btn w-full" type="submit">Login</button>
+        <button :disabled="loading" class="btn w-full" type="submit">Login</button>
       </form>
       <!--
       <div class="my-4 text-center">

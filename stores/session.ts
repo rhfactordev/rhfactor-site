@@ -14,9 +14,16 @@ export const useSessionStore = defineStore('session', {
             console.log('Efetuando login', userToken)
             this.userToken = userToken
         },
+        logout(){
+            console.log('Efetuando logout')
+            this.userToken = initialUserToken
+        }
     },
     getters: {
-        isAuthenticated: (state) => state.userToken != null,
+        isAuthenticated: (state) => {
+            return state.userToken != null
+                && state.userToken.accessToken != null
+        },
     },
     hydrate(state, initialState) {
         // @ts-ignore

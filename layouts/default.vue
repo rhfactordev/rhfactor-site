@@ -27,8 +27,11 @@ useServerHead({
         <li v-if="!isAuthenticated" class="inline-flex items-center">
           <nuxt-link class="hover:text-emerald-900" to="/login">Login</nuxt-link>
         </li>
-        <li v-else class="inline-flex items-center">
+        <li v-if="isAuthenticated" class="inline-flex items-center">
           <nuxt-link class="hover:text-emerald-900" to="/minha-conta">Minha conta</nuxt-link>
+        </li>
+        <li v-if="isAuthenticated" class="inline-flex items-center">
+          <nuxt-link class="hover:text-emerald-900" to="/logout">Sair</nuxt-link>
         </li>
         <!--
         <li class="inline-flex items-center">

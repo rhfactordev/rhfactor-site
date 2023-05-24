@@ -47,6 +47,7 @@ useServerHead({
   <header class="bg-white sticky top-0 z-40">
     <layout-navbar/>
   </header>
+  <nuxt-loading-indicator />
   <slot/>
   <layout-footer :title="site.title"
                  :logo="site.image"

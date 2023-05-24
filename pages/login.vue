@@ -2,7 +2,6 @@
 import {useNuxtApp} from "#app";
 import {useSessionStore} from "~/stores/session";
 
-
 const session = useSessionStore()
 const router = useRouter()
 
@@ -45,12 +44,19 @@ const login = async ()=>{
     alert(error.value.data.message)
     return
   }
-  session.login(data.value.body)
+
+  session.login(data.value)
   router.push('/minha-conta')
 }
 
 const sessionUser = computed(()=>{
   return session.user
+})
+
+onBeforeMount(()=>{
+  if( session.isAuthenticated ){
+    router.push('/minha-conta')
+  }
 })
 
 </script>

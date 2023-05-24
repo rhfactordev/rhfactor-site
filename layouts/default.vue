@@ -1,7 +1,11 @@
 <script setup>
 import {useNuxtApp} from "#app";
+import {useSessionStore} from "~/stores/session";
 
 const site = useNuxtApp().site
+const session = useSessionStore()
+
+const isAuthenticated = computed(()=> session.isAuthenticated )
 
 useServerHead({
   titleTemplate: `%s - ${site.title}`,
@@ -9,6 +13,7 @@ useServerHead({
     lang : 'pt-BR'
   }
 })
+
 </script>
 <template>
   <div class="bg-teal-400 flex justify-between text-sm text-white font-serif font-medium">
@@ -19,8 +24,11 @@ useServerHead({
           <nuxt-link class="hover:text-emerald-900" to="/cadastro">Cadastro</nuxt-link>
         </li>
         -->
-        <li class="inline-flex items-center">
+        <li v-if="!isAuthenticated" class="inline-flex items-center">
           <nuxt-link class="hover:text-emerald-900" to="/login">Login</nuxt-link>
+        </li>
+        <li v-else class="inline-flex items-center">
+          <nuxt-link class="hover:text-emerald-900" to="/minha-conta">Minha conta</nuxt-link>
         </li>
         <!--
         <li class="inline-flex items-center">

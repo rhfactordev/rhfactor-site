@@ -1,8 +1,11 @@
 <script setup>
+  import {useSessionStore} from "~/stores/session";
+
   const dropdownState = ref(false)
   const menuState = ref(false)
   const isMenuOpened = computed(()=> menuState.value )
   const isDropdownOpened = computed(()=> dropdownState.value )
+  const session = useSessionStore()
 
   const openCloseMenu = () => {
     if( menuState.value ){
@@ -15,6 +18,9 @@
     menuState.value = false
     dropdownState.value = false
   }
+
+  const isAuthenticated = computed(()=> session.isAuthenticated )
+
 </script>
 
 <template>
@@ -69,8 +75,11 @@
             </nuxt-link>
           </li>
           -->
-          <li class="md:hidden">
+          <li v-if="!isAuthenticated" class="md:hidden">
             <nuxt-link @click="closeDropdown" to="/login" class="link bg-teal-500" exact-active-class="text-teal-900">Acessar minha conta</nuxt-link>
+          </li>
+          <li v-else class="md:hidden">
+            <nuxt-link @click="closeDropdown" to="/minha-conta" class="link bg-teal-500" exact-active-class="text-teal-900">Minha conta</nuxt-link>
           </li>
         </ul>
       </div>

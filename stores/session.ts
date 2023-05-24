@@ -1,19 +1,17 @@
 import {acceptHMRUpdate, defineStore} from "pinia";
-
+import {useLocalStorage} from '@vueuse/core';
 
 export const useSessionStore = defineStore('session', {
     state: () => ({
-        user : null as User | null,
+        user : useLocalStorage('user', {})
     }),
-
-    getters: {
-         username: (state) => state.user?.name,
-    },
-
     actions: {
         login(user: User) {
             this.user = user
         },
+    },
+    hydrate(state, initialState) {
+        state.user = useLocalStorage('user', {})
     },
 })
 

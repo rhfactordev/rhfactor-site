@@ -7,6 +7,7 @@ export default defineNuxtConfig({
         'nuxt-gtag',
         'nuxt-icon',
         '@pinia/nuxt',
+        '@vueuse/nuxt',
     ],
     tailwindcss: {
         // cssPath: '~/assets/css/tailwind.css',

@@ -3,7 +3,7 @@ import {useLocalStorage} from '@vueuse/core';
 
 export const useSessionStore = defineStore('session', {
     state: () => ({
-        user : useLocalStorage('user', {})
+        user : useLocalStorage('user', <User>{})
     }),
     actions: {
         login(user: User) {
@@ -11,7 +11,7 @@ export const useSessionStore = defineStore('session', {
         },
     },
     hydrate(state, initialState) {
-        state.user = useLocalStorage('user', {})
+        state.user = useLocalStorage('user', <User>{})
     },
 })
 

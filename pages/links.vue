@@ -13,6 +13,10 @@ const meta = {
   ogImage: site.image,
 }
 
+definePageMeta({
+  layout: 'none'
+});
+
 useSeoMeta(meta)
 useServerSeoMeta(meta)
 </script>

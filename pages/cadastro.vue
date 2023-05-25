@@ -27,16 +27,17 @@ const showPasswordIcon = computed(()=> showPassword.value ? 'mdi:eye-off' : 'mdi
 
     <div class="border w-full md:w-5/12 lg:w-4/12 mx-auto bg-teal-100 rounded-lg px-5 py-10">
       <h1 class="text-teal-700 text-center mb-10">Criar seu cadastro</h1>
-
       <form>
         <div class="mb-3">
-          <label class="hidden" for="contactFieldName">Nome</label>
-          <input v-model="account.login" required type="text" aria-required="true" name="name" id="contactFieldName" class="form-control" placeholder="Digite seu e-mail.">
+          <label class="hidden" for="signupFieldLogin">Login</label>
+          <input v-model="account.login" required type="text" aria-required="true" name="name" id="signupFieldLogin" class="form-control" placeholder="Digite seu e-mail.">
         </div>
         <div class="flex mb-3">
-          <input v-model="account.password" :type="inputType" class="form-control"  placeholder="Digite sua senha.">
+          <label class="hidden" for="signupFielPassword">Senha</label>
+          <input v-model="account.password" :type="inputType" id="signupFielPassword" class="form-control"  placeholder="Digite sua senha.">
           <button type="button" @click="showPassword=!showPassword" class="btn w-10 h-10">
             <Icon :name="showPasswordIcon" class="w-full h-full m-0" />
+            <span class="invisible">Login</span>
           </button>
         </div>
         <button class="btn w-full" type="submit">Criar minha conta</button>
@@ -45,6 +46,5 @@ const showPasswordIcon = computed(()=> showPassword.value ? 'mdi:eye-off' : 'mdi
         <nuxt-link class="text-sm hover:text-teal-600" to="/login">Já tem uma conta? Acesse por aqui!</nuxt-link>
       </div>
     </div>
-
   </main>
 </template>

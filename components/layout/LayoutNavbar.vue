@@ -85,6 +85,7 @@
       </div>
     </div>
 
+    <!--
     <div :class="{ 'hidden': !isDropdownOpened }" class="mt-1 z-50 border-gray-200 shadow-sm bg-white border-y">
       <ul class="grid grid-cols-1 md:grid-cols-2 gap-2 p-2">
           <li class="bg-teal-50 rounded">
@@ -107,6 +108,7 @@
           </li>
         </ul>
     </div>
+    -->
 
   </nav>
 </template>

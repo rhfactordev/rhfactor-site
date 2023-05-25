@@ -26,27 +26,27 @@ const hasLinks = computed(()=>  props.links.length > 0 )
 
 
         <div class="hidden md:block" :class="{ 'col-span-2' : !hasLinks }"  >
-          <h3 class="mb-4 flex justify-center font-semibold uppercase md:justify-start">
+          <h2 class="mb-4 flex justify-center font-semibold uppercase md:justify-start">
             Serviços Digitais
-          </h3>
+          </h2>
           <p v-for="({target,name},index) in services" :key="index" class="mb-4">
             <nuxt-link class="hover:text-teal-800 text-neutral-50" :to="target">{{ name }}</nuxt-link>
           </p>
         </div>
 
         <div v-if="hasLinks" class="hidden md:block">
-          <h3 class="mb-4 flex justify-center font-semibold uppercase md:justify-start">
+          <h2 class="mb-4 flex justify-center font-semibold uppercase md:justify-start">
             Links Rápidos
-          </h3>
+          </h2>
           <p v-for="({target,name},index) in links" :key="index" class="mb-4">
             <nuxt-link class="hover:text-teal-800 text-neutral-50" :to="target">{{ name }}</nuxt-link>
           </p>
         </div>
 
         <div>
-          <h3 class="mb-4 flex justify-center font-semibold uppercase md:justify-start">
+          <h2 class="mb-4 flex justify-center font-semibold uppercase md:justify-start">
             Contato
-          </h3>
+          </h2>
           <p class="mb-4 flex items-center justify-center md:justify-start">
             {{phone}}
           </p>

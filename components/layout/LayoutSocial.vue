@@ -8,6 +8,7 @@
        :href="target"
        :key="index"
        class="mr-6 text-neutral-200 hover:text-white">
+      <span class="hidden"> {{ name }} </span>
       <IconCSS :name="icon" />
     </a>
   </div>

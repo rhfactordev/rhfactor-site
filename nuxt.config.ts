@@ -26,6 +26,7 @@ export default defineNuxtConfig({
     //     extractCSS: true,
     // }
     runtimeConfig:{
-        backendServer: process.env.BACKEND_SERVER || 'http://localhost:5000'
+        backendServer: process.env.BACKEND_SERVER || 'http://localhost:5000',
+        domain: process.env.SITE_DOMAIN || 'localhost',
     }
 })

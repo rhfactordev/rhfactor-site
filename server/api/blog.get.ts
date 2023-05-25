@@ -2,59 +2,63 @@ export default defineEventHandler(async (event) => {
 
     // const body = await readBody(event)
     const { limit, showCategories, page, category, post } = getQuery(event)
+    const config = useRuntimeConfig()
 
     const loadCategories = showCategories == null || showCategories
     const loadPosts = post == null
 
     let entry
-    const posts = []
-    const categories = []
+    let pages = 0
+    let posts = []
+    let categories = []
+    let empty = false
 
-    // @ts-ignore
-    for (let i = 0; i < (limit?limit:1); i++) {
-        if( loadCategories ){
-            if (i < 6) {
-                categories.push({
-                    name: `Categoria ${i}`,
-                    source: `categoria-${i}`,
-                    target: `/blog/categoria-${i}`
-                })
-            }
-        }
-        if( loadPosts ){
-            posts.push(
-                {
-                    name: `Post ${i} ${ category ? ` de ${category} ` : '' } ${page ?  `de page ${page}` : '' }`,
-                    category: `${ category ? `${category}` : 'sem-categoria' }`,
-                    categoryName: `${ category ? `${category}` : 'Sem Categoria' }`,
-                    source: `categoria-${i}`,
-                    date: "20/12/2023 10:22h",
-                    target: `/blog/${ category ? `${category}` : 'sem-categoria' }/${i}`,
-                    image: `https://picsum.photos/id/${i*10}/674/338`,
-                    description: "descrição do post que vem aqui como um parafago mas não é com html",
-                    content: `<p>Conteúdo em html do post ${i}</p>`
-                }
-            )
-        }else{
-            entry = {
-                name: `Post ${post} ${ category ? ` de ${category} ` : '' } ${page ?  `de page ${page}` : '' }`,
-                category: `${ category ? `${category}` : 'sem-categoria' }`,
-                categoryName: `${ category ? `${category} ` : 'Sem Categoria' }`,
-                source: `${ category ? `${category} ` : 'sem-categoria' }`,
-                date: "20/12/2023 10:22h",
-                target: `/blog/${ category ? `${category}` : 'sem-categoria' }/${i}`,
-                image: `https://picsum.photos/id/${i}/674/338`,
-                description: "descrição do post que vem aqui como um parafago mas não é com html",
-                content: `<p>Conteúdo em html do post ${post}</p>`
-            }
-        }
+
+
+    if( loadCategories ){
+        // @ts-ignore
+        categories = await $fetch(`${config.backendServer}/client/v1/blog/categories?domain=${config.domain}`)
     }
 
-    // await new Promise(resolve => setTimeout(resolve, 400));
+
+    let uri = `${config.backendServer}/client/v1/blog/`
+    // Carregar categoria
+    if( category != null ){
+        uri = uri + category
+    }
+
+
+    // {
+    //     name: `Post ${i} ${ category ? ` de ${category} ` : '' } ${page ?  `de page ${page}` : '' }`,
+    //     category: `${ category ? `${category}` : 'sem-categoria' }`,
+    //     categoryName: `${ category ? `${category}` : 'Sem Categoria' }`,
+    //     source: `categoria-${i}`,
+    //     date: "20/12/2023 10:22h",
+    //     target: `/blog/${ category ? `${category}` : 'sem-categoria' }/${i}`,
+    //     image: `https://picsum.photos/id/${i*10}/674/338`,
+    //     description: "descrição do post que vem aqui como um parafago mas não é com html",
+    //     content: `<p>Conteúdo em html do post ${i}</p>`
+    // }
+
+    if( loadPosts ){
+        uri = uri + `?&domain=${config.domain}&size=10`
+        if( page != null ){
+            uri= uri + `&page=${page < 1 ? page : page -1}`
+        }
+        const postsResponse = await $fetch(uri)
+        posts = postsResponse.content
+        pages = postsResponse.pages
+        empty = postsResponse.empty
+    }else{
+        uri = uri + `/${post}?domain=${config.domain}`
+        entry = await $fetch(uri)
+    }
 
     return {
         posts,
         categories,
-        post : entry
+        post : entry,
+        pages,
+        empty
     }
 })

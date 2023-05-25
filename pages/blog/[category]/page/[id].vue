@@ -18,8 +18,12 @@ const serverUrl = computed(()=>{
 })
 
 const { data } = await useFetch(serverUrl.value)
+
 const categories = data.value.categories
 const posts = data.value.posts
+const pages = data.value.pages
+const empty = data.value.empty
+
 const categoryName = computed(()=>{
   if( hasCategory.value ){
     return categories.filter(it=>it.source == categorySource)[0].name
@@ -53,7 +57,11 @@ useServerSeoMeta(metas)
     <e-title class="col-span-4">
       {{ hasCategory ? categoryName : 'Blog'  }}
     </e-title>
-    <div class="col-span-4 md:col-span-3 p-4">
+    <div v-if="empty" class="col-span-4 md:col-span-3 p-4 text-center">
+      <p class="font-serif">Desculpe, não foi encontrado nenhum post nesta página</p>
+      <nuxt-link class="btn" to="/blog">Voltar</nuxt-link>
+    </div>
+    <div v-else class="col-span-4 md:col-span-3 p-4">
       <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 mb-6">
         <blog-card v-for="({name, image, target, description, date},index) in posts" :key="index"
                    :name="name"
@@ -64,7 +72,7 @@ useServerSeoMeta(metas)
       </div>
       <div class="text-center mb-4">
         <nav-pagination :path="path"
-                        :pages="5"
+                        :pages="pages"
                         :current="page"
         />
       </div>

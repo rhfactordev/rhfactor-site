@@ -42,7 +42,7 @@ useServerHead({
     </div>
     <div class="flex-auto">
       <nuxt-link to="/">
-        <img class="max-w-md m-auto" :src="site.image" :alt="`Logo ${site.title}`">
+        <img class="max-w-full md:max-w-md m-auto" :src="site.image" :alt="`Logo ${site.title}`">
       </nuxt-link>
     </div>
     <div class="hidden md:inline-flex">

@@ -1,6 +1,5 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
-    $schema: undefined,
     modules: [
         '@nuxtjs/tailwindcss',
         'nuxt-delay-hydration',
@@ -9,6 +8,10 @@ export default defineNuxtConfig({
         'nuxt-icon',
         '@pinia/nuxt',
         '@vueuse/nuxt',
+        'nuxt-simple-sitemap',
+        'nuxt-simple-robots',
+        'nuxt-schema-org',
+        'nuxt-link-checker',
     ],
     tailwindcss: {
         // cssPath: '~/assets/css/tailwind.css',
@@ -28,5 +31,22 @@ export default defineNuxtConfig({
     runtimeConfig:{
         backendServer: process.env.BACKEND_SERVER || 'http://localhost:5000',
         domain: process.env.SITE_DOMAIN || 'localhost',
+        public: {
+            siteUrl: `https://${process.env.SITE_DOMAIN}` || 'https://localhost:8080',
+            siteName: process.env.SITE_TITLE || 'Dev Site',
+            language: 'pt=BR',
+            trailingSlash: true,
+        }
+    },
+    extends: [
+        'nuxt-seo-kit'
+    ],
+    linkChecker: {
+        failOn404: true,
+    },
+    unhead: {
+        ogTitleTemplate: `%s | ${process.env.SITE_TITLE}`,
+    },
+    hooks: {
     }
 })

@@ -59,6 +59,14 @@ useServerHead({
     <layout-navbar/>
   </header>
   <nuxt-loading-indicator />
+  <!-- SEO kit -->
+  <SeoKit />
+  <!-- a. Generates browser screenshots for every page -->
+  <OgImageScreenshot />
+  <!-- b. Generate saotir images for every page (uses the default template) -->
+  <OgImageStatic />
+  <!-- Robot -->
+  <RobotMeta />
   <slot/>
   <layout-footer :title="site.title"
                  :logo="site.image"

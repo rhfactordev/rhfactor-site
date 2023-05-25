@@ -1,4 +1,28 @@
 export default defineNuxtPlugin(async (nuxtApp) => {
+
+    const social = [
+        {
+            name : 'Facebook',
+            target : 'https://www.facebook.com',
+            icon : 'ri:facebook-fill'
+        },
+        {
+            name : 'Youtube',
+            target: 'https://www.youtube.com',
+            icon : 'ri:youtube-fill',
+        },
+        {
+            name: 'Linkedin',
+            target: 'https://www.linkedin.com',
+            icon : 'ri:linkedin-fill'
+        }
+
+    ]
+
+    const socialLink = () =>{
+        return social.map(it=>it.target)
+    }
+
     nuxtApp.site = {
         title: 'Andreza Ferreira Astrologia',
         document: '11.222.333/0001-34',
@@ -19,26 +43,7 @@ export default defineNuxtPlugin(async (nuxtApp) => {
         links : [
 
         ],
-
-        social : [
-            {
-                name : 'Facebook',
-                target : 'https://www.facebook.com',
-                icon : 'ri:facebook-fill'
-            },
-            {
-                name : 'Youtube',
-                target: 'https://www.youtube.com',
-                icon : 'ri:youtube-fill',
-            },
-            {
-                name: 'Linkedin',
-                target: 'https://www.linkedin.com',
-                icon : 'ri:linkedin-fill'
-            }
-
-        ]
-
-
+        social,
+        socialLink,
     }
 })

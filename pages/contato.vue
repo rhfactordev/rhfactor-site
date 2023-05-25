@@ -61,6 +61,7 @@ const handleSubmit = async ( event ) => {
 </script>
 <template>
   <e-title>Contato</e-title>
+  <Breadcrumbs class="breadcrumb col-span-full mb-4" />
   <section class="md:w-8/12 mx-auto mb-6">
     <div class="flex flex-wrap">
       <!--  md:w-5/12    -->

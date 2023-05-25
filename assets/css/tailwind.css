@@ -34,15 +34,19 @@ P {
 /**
   Alerts
  */
-.alert{
+.alert {
     @apply border p-5 w-full my-4 mx-auto rounded-lg;
 
-    &.error{
-        @apply bg-red-200 border-red-300;
-    }
-    &.success{
-        @apply bg-green-200 border-green-500;
-    }
+&
+.error {
+    @apply bg-red-200 border-red-300;
+}
+
+&
+.success {
+    @apply bg-green-200 border-green-500;
+}
+
 }
 
 /**
@@ -59,12 +63,17 @@ P {
 
 .btn {
     @apply bg-teal-300 p-2 text-white shadow-lg shadow-gray-300 rounded-sm;
-    &:hover {
-        @apply bg-teal-400;
-    }
-    &:disabled{
-        @apply bg-teal-900 text-gray-400;
-    }
+
+&
+:hover {
+    @apply bg-teal-400;
+}
+
+&
+:disabled {
+    @apply bg-teal-900 text-gray-400;
+}
+
 }
 
 
@@ -84,28 +93,45 @@ aside .title {
 .card {
     @apply block max-w-max bg-white drop-shadow-md;
 
-.title {
-    @apply font-serif
-    font-extrabold
-    text-lg
-    text-center
-    mb-6;
+    .title {
+        @apply font-serif
+        font-extrabold
+        text-lg
+        text-center
+        mb-6;
+    }
+
+    .card-image {
+        @apply w-full mb-6;
+    }
+
+    .card-date {
+        @apply text-teal-400 text-sm text-center mx-auto mb-6;
+    }
+
+    .content {
+        @apply text-sm text-center p-3;
+    }
+
+    .more {
+        @apply text-center hover:text-emerald-900;
+    }
+
+}
+.breadcrumb {
+    @apply border-b border-teal-50 w-11/12 ml-10;
+    > UL {
+        @apply w-full md:w-8/12 m-auto flex;
+        > LI {
+            @apply mr-2;
+            > A {
+                @apply text-sm p-2 text-teal-600 border-b border-teal-100;
+                &:hover{
+                     @apply text-teal-900;
+                 }
+            }
+        }
+    }
+
 }
 
-.card-image {
-    @apply w-full mb-6;
-}
-
-.card-date {
-    @apply text-teal-400 text-sm text-center mx-auto mb-6;
-}
-
-.content {
-    @apply text-sm text-center p-3;
-}
-
-.more {
-    @apply text-center hover:text-emerald-900;
-}
-
-}

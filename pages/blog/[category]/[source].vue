@@ -38,6 +38,7 @@ useServerSeoMeta(meta)
 <template>
   <main class="grid grid-cols-6 gap-0">
     <e-title class="col-span-full">{{post.title}}</e-title>
+    <Breadcrumbs class="breadcrumb col-span-full mb-4" />
     <div class="col-span-full lg:col-span-2 p-4">
       <img class="w-full" :src="post.image" :alt="`Imagem para o ${post.title}`">
     </div>

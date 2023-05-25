@@ -53,10 +53,11 @@ useSeoMeta(metas)
 useServerSeoMeta(metas)
 </script>
 <template>
-  <main class="grid grid-cols-4 gap-0">
-    <e-title class="col-span-4">
+  <main class="grid grid-cols-4 gap-0 w-full lg:w-10/12 m-auto">
+    <e-title class="col-span-full">
       {{ hasCategory ? categoryName : 'Blog'  }}
     </e-title>
+    <Breadcrumbs class="breadcrumb col-span-full mb-4" />
     <div v-if="empty" class="col-span-4 md:col-span-3 p-4 text-center">
       <p class="font-serif">Desculpe, não foi encontrado nenhum post nesta página</p>
       <nuxt-link class="btn" to="/blog">Voltar</nuxt-link>

@@ -18,6 +18,7 @@ export default defineNitroConfig({
             '/cadastro',
             '/contato',
             '/esqueci-minha-senha',
+            '/links',
             '/login',
             '/blog',
             '/privacidade',

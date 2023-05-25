@@ -22,20 +22,25 @@ export default defineNuxtPlugin(async (nuxtApp) => {
 
         social : [
             {
+                name : 'Instragram',
+                target : 'https://www.instagram.com/andrezaastrologia/',
+                icon : 'ri:instagram-fill'
+            },
+            {
                 name : 'Facebook',
-                target : 'https://www.facebook.com',
+                target : 'https://www.facebook.com/andrezarafer',
                 icon : 'ri:facebook-fill'
             },
             {
                 name : 'Youtube',
-                target: 'https://www.youtube.com',
+                target: 'https://www.youtube.com/@andrezaferreiraastrologia/',
                 icon : 'ri:youtube-fill',
             },
-            {
-                name: 'Linkedin',
-                target: 'https://www.linkedin.com',
-                icon : 'ri:linkedin-fill'
-            }
+            // {
+            //     name: 'Linkedin',
+            //     target: 'https://www.linkedin.com',
+            //     icon : 'ri:linkedin-fill'
+            // }
 
         ]
 

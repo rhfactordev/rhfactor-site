@@ -54,7 +54,7 @@ const hasLinks = computed(()=>  props.links.length > 0 )
             {{email}}
           </p>
           <p class="flex items-center justify-center md:justify-start mb-4">
-            <nuxt-link class="hover:text-teal-800 text-neutral-50" to="/termos-de-uso">Termos de uso</nuxt-link>
+            <nuxt-link to="/termos-de-uso">Termos de uso</nuxt-link>
           </p>
           <p class="mb-4 flex items-center justify-center md:justify-start">
             <nuxt-link to="/privacidade">Política de privacidade</nuxt-link>

@@ -14,7 +14,7 @@ const meta = {
 }
 
 definePageMeta({
-  layout: 'none'
+  layout: false
 });
 
 useSeoMeta(meta)

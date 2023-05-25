@@ -63,8 +63,8 @@ useServerSeoMeta(metas)
     </div>
     <div v-else class="col-span-4 md:col-span-3 p-4">
       <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 mb-6">
-        <blog-card v-for="({name, image, target, description, date},index) in posts" :key="index"
-                   :name="name"
+        <blog-card v-for="({title, image, target, description, date},index) in posts" :key="index"
+                   :name="title"
                    :date="date"
                    :image="image"
                    :target="target"

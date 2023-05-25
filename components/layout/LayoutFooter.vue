@@ -21,7 +21,9 @@ const hasLinks = computed(()=>  props.links.length > 0 )
           <p class="mx-4 hidden md:block">
             {{description}}
           </p>
-          <p>CNPJ {{ document }}</p>
+          <p class="mx-4">
+            CNPJ {{ document }}
+          </p>
         </div>
 
 

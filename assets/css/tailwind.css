@@ -58,7 +58,7 @@ P {
 }
 
 .btn {
-    @apply bg-teal-300 p-2 text-neutral-700 shadow-lg shadow-gray-300 rounded-sm;
+    @apply bg-teal-400 p-2 text-white shadow-lg shadow-gray-300 rounded-sm;
     &:hover {
         @apply bg-teal-400;
     }

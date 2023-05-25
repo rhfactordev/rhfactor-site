@@ -68,20 +68,22 @@ onBeforeMount(()=>{
 
       <form @submit.prevent="login" >
         <div class="mb-3">
-          <label class="hidden" for="contactFieldName">Nome</label>
-          <input v-model="account.login" required type="text" aria-required="true" name="name" id="contactFieldName" class="form-control" placeholder="Digite seu e-mail.">
+          <label class="hidden" for="loginFieldLogin">Login</label>
+          <input v-model="account.login" required type="text" aria-required="true" name="name" id="loginFieldLogin" class="form-control" placeholder="Digite seu e-mail.">
         </div>
 
         <div class="flex mb-3">
-          <input v-model="account.password" :type="inputType" class="form-control"  placeholder="Digite sua senha.">
+          <label class="hidden" for="loginFieldPassword">Login</label>
+          <input v-model="account.password" :type="inputType" id="loginFieldPassword" class="form-control" placeholder="Digite sua senha.">
           <button type="button" @click="showPassword=!showPassword" class="btn w-10 h-10">
             <Icon :name="showPasswordIcon" class="w-full h-full m-0" />
+            <span class="hidden">Exibir senha</span>
           </button>
         </div>
         <div class="mb-4">
           <nuxt-link class="text-sm hover:text-teal-600" to="/esqueci-minha-senha">Esqueceu sua senha? Clique aqui!</nuxt-link>
         </div>
-        <button :disabled="loading" class="btn w-full" type="submit">Login</button>
+        <button :disabled="loading" class="btn w-full" type="submit">Efetuar Login</button>
       </form>
       <!--
       <div class="my-4 text-center">

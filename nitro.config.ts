@@ -20,7 +20,6 @@ export default defineNitroConfig({
             '/esqueci-minha-senha',
             '/login',
             '/blog',
-            '/blog/**',
             '/privacidade',
             '/sobre-mim',
             '/termos-de-uso',

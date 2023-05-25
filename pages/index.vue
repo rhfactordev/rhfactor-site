@@ -27,8 +27,8 @@ useServerSeoMeta(meta)
       <h2 class="title">Últimos posts</h2>
       <p class="text-center mx-auto my-10 font-serif text-lg font-extralight">Quer se conectar mais a astrologia, de uma olhada nos nossos ultimos posts</p>
       <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 md:mx-28 xl:mx-40">
-        <blog-card v-for="({name, image, target, description, date},index) in posts" :key="index"
-                   :name="name"
+        <blog-card v-for="({title, image, target, description, date},index) in posts" :key="index"
+                   :name="title"
                    :image="image"
                    :date="date"
                    :target="target"

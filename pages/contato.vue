@@ -66,17 +66,17 @@ const handleSubmit = async ( event ) => {
       <!--  md:w-5/12    -->
       <div class="w-full md:order-2 mb-5 p-5 border border-gray-200">
         <div class="p-5">
-          <h4>Telefone</h4>
+          <h2>Telefone</h2>
           <p>{{ site.phone }}</p>
         </div>
         <hr/>
         <div class="p-5">
-          <h4>Whatsapp</h4>
-          <p><a target="_blank" :href="`https://wa.me/${site.whatsapp.replace(/\D/g,'')}`">{{ site.whatsapp }}</a></p>
+          <h2>Whatsapp</h2>
+          <p><a title="Contato via Whatsapp" target="_blank" :href="`https://wa.me/${site.whatsapp.replace(/\D/g,'')}`">{{ site.whatsapp }}</a></p>
         </div>
         <div class="p-5">
-          <h4>E-mail</h4>
-          <p><a :href="`mailto:{{ site.email }}`">{{ site.email }}</a></p>
+          <h2>E-mail</h2>
+          <p><a title="Contato via E-mail" :href="`mailto:{{ site.email }}`">{{ site.email }}</a></p>
         </div>
       </div>
       <div v-if="false" class="w-full mb-5 md:w-7/12 p-5">

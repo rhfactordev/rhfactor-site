@@ -11,14 +11,7 @@ const meta = {
   description: site.description,
   ogDescription: site.description,
   ogImage: site.image,
-  middleware: ['nolayout'],
-  layout: 'none'
 }
-
-definePageMeta({
-  middleware: ['nolayout'],
-  layout: 'none'
-})
 
 useSeoMeta(meta)
 useServerSeoMeta(meta)

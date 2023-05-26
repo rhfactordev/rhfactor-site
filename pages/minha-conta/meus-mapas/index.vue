@@ -33,7 +33,7 @@ onMounted(async ()=>{
 
 <template>
   <e-title>Meus mapas astrais</e-title>
-  <div class="card p-5 rounded-md">
+  <div class="card md:p-5 rounded-md">
 
     <div v-if="loading"><p>Aguarde! Carregando seus mapas... </p></div>
 

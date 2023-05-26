@@ -32,7 +32,7 @@ onMounted(async ()=>{
 
 <template>
   <e-title>Minhas compras</e-title>
-  <div class="card p-5 rounded-md">
+  <div class="card md:p-5 rounded-md">
 
     <div v-if="loading"><p>Aguarde! Carregando suas compras... </p></div>
 

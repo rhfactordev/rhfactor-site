@@ -4,7 +4,6 @@
   const dropdownState = ref(false)
   const menuState = ref(false)
   const isMenuOpened = computed(()=> menuState.value )
-  const isDropdownOpened = computed(()=> dropdownState.value )
   const session = useSessionStore()
 
   const openCloseMenu = () => {
@@ -38,27 +37,6 @@
           <li>
             <nuxt-link @click="closeDropdown" to="/" class="link" exact-active-class="text-teal-900 ">Home</nuxt-link>
           </li>
-          <!--
-          <li class="md:hidden">
-            <nuxt-link @click="closeDropdown" to="/cadastro" class="link" exact-active-class="text-teal-900">Cadastro</nuxt-link>
-          </li>
-          <li>
-            <nuxt-link @click="closeDropdown" to="/loja" class="link" exact-active-class="text-teal-900">Loja</nuxt-link>
-          </li>
-          <li>
-            <nuxt-link @click="closeDropdown" to="/servicos" class="link" exact-active-class="text-teal-900">Serviços</nuxt-link>
-          </li>
-          -->
-          <!--
-          <li>
-            <button @click="dropdownState=!dropdownState" id="mega-menu-full-dropdown-button" data-collapse-toggle="mega-menu-full-dropdown" class="flex items-center justify-between w-full link-style">
-              Serviços
-              <svg class="w-5 h-5 ml-1" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
-                <path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd"></path>
-              </svg>
-            </button>
-          </li>
-          -->
           <li>
             <nuxt-link @click="closeDropdown" to="/sobre-mim" class="link" exact-active-class="text-teal-900">Sobre mim</nuxt-link>
           </li>
@@ -68,13 +46,6 @@
           <li>
             <nuxt-link @click="closeDropdown" to="/contato" class="link" exact-active-class="text-teal-900">Contato</nuxt-link>
           </li>
-          <!--
-          <li class="md:hidden mb-3">
-            <nuxt-link @click="closeDropdown" to="/carrinho" class="link" exact-active-class="text-teal-900">
-              Carrinho
-            </nuxt-link>
-          </li>
-          -->
           <li v-if="!isAuthenticated" class="md:hidden">
             <nuxt-link @click="closeDropdown" to="/login" class="link bg-teal-500" exact-active-class="text-teal-900">Acessar minha conta</nuxt-link>
           </li>
@@ -84,32 +55,6 @@
         </ul>
       </div>
     </div>
-
-    <!--
-    <div :class="{ 'hidden': !isDropdownOpened }" class="mt-1 z-50 border-gray-200 shadow-sm bg-white border-y">
-      <ul class="grid grid-cols-1 md:grid-cols-2 gap-2 p-2">
-          <li class="bg-teal-50 rounded">
-            <nuxt-link @click="closeDropdown" to="/servicos/thetahealing" class="dropdownLink">
-              <div class="font-semibold">ThetaHealing</div>
-              <span class="text-sm">Connect with third-party tools that you're already using.</span>
-            </nuxt-link>
-          </li>
-          <li class="bg-teal-50 rounded">
-            <nuxt-link @click="closeDropdown" to="/servicos/constelacao-familiar" class="dropdownLink">
-              <div class="font-semibold">Constelação familiar</div>
-              <span class="text-sm">Connect with third-party tools that you're already using.</span>
-            </nuxt-link>
-          </li>
-          <li class="bg-teal-50 rounded">
-            <nuxt-link @click="closeDropdown" to="/servicos/thetahealing" class="dropdownLink">
-              <div class="font-semibold">ThetaHealing</div>
-              <span class="text-sm">Connect with third-party tools that you're already using.</span>
-            </nuxt-link>
-          </li>
-        </ul>
-    </div>
-    -->
-
   </nav>
 </template>
 

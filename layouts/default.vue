@@ -19,11 +19,6 @@ useServerHead({
   <div class="bg-teal-400 flex justify-between text-sm text-white font-serif font-medium">
     <div class="hidden md:inline-flex">
       <ul class="flex space-x-5 p-3 mx-4">
-        <!--
-        <li class="inline-flex items-center">
-          <nuxt-link class="hover:text-emerald-900" to="/cadastro">Cadastro</nuxt-link>
-        </li>
-        -->
         <li v-if="!isAuthenticated" class="inline-flex items-center">
           <nuxt-link class="hover:text-emerald-900" to="/login">Login</nuxt-link>
         </li>
@@ -31,13 +26,14 @@ useServerHead({
           <nuxt-link class="hover:text-emerald-900" to="/minha-conta">Minha conta</nuxt-link>
         </li>
         <li v-if="isAuthenticated" class="inline-flex items-center">
+          <nuxt-link class="hover:text-emerald-900" to="/minha-conta/meus-mapas">Meus mapas</nuxt-link>
+        </li>
+        <li v-if="isAuthenticated" class="inline-flex items-center">
+          <nuxt-link class="hover:text-emerald-900" to="/minha-conta/minhas-compras">Minhas compras</nuxt-link>
+        </li>
+        <li v-if="isAuthenticated" class="inline-flex items-center">
           <nuxt-link class="hover:text-emerald-900" to="/logout">Sair</nuxt-link>
         </li>
-        <!--
-        <li class="inline-flex items-center">
-          <nuxt-link class="hover:text-emerald-900" to="/carrinho">Carrinho</nuxt-link>
-        </li>
-        -->
       </ul>
     </div>
     <div class="flex-auto">

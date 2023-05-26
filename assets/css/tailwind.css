@@ -82,7 +82,7 @@ aside .title {
 }
 
 .card {
-    @apply block max-w-max bg-white drop-shadow-md;
+    @apply block bg-white drop-shadow-md;
 
 .title {
     @apply font-serif
@@ -106,6 +106,27 @@ aside .title {
 
 .more {
     @apply text-center hover:text-emerald-900;
+}
+
+TABLE {
+    @apply w-full text-sm text-left text-gray-500;
+    THEAD{
+        @apply text-xs text-gray-700 uppercase bg-gray-50;
+        TH{
+            @apply px-6 py-3;
+        }
+    }
+    TBODY{
+        TR{
+            @apply  border-b;
+            TH{
+                @apply px-6 py-4 font-medium text-gray-900 whitespace-nowrap;
+            }
+            TD{
+                @apply px-6 py-4;
+            }
+        }
+    }
 }
 
 }

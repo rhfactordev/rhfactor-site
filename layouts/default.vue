@@ -26,12 +26,6 @@ useServerHead({
           <nuxt-link class="hover:text-emerald-900" to="/minha-conta">Minha conta</nuxt-link>
         </li>
         <li v-if="isAuthenticated" class="inline-flex items-center">
-          <nuxt-link class="hover:text-emerald-900" to="/minha-conta/meus-mapas">Meus mapas</nuxt-link>
-        </li>
-        <li v-if="isAuthenticated" class="inline-flex items-center">
-          <nuxt-link class="hover:text-emerald-900" to="/minha-conta/minhas-compras">Minhas compras</nuxt-link>
-        </li>
-        <li v-if="isAuthenticated" class="inline-flex items-center">
           <nuxt-link class="hover:text-emerald-900" to="/logout">Sair</nuxt-link>
         </li>
       </ul>

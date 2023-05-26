@@ -1,11 +1,9 @@
-<script setup>
+<script>
 definePageMeta({
   middleware: ['auth'],
   layout: 'authenticated'
 });
 </script>
-
-
 <template>
-  <h1>Olá</h1>
+  <p>Utilize a navegação acima</p>
 </template>

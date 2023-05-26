@@ -24,9 +24,9 @@ useServerHead({
         <img class="w-full" :src="site.image" :alt="`Logo para ${site.title}`" />
       </nuxt-link>
     </div>
-    <div>
-      <nuxt-link to="/">Voltar ao site</nuxt-link>
-      <nuxt-link to="/logout">Sair</nuxt-link>
+    <div class="h-full pt-5">
+      <nuxt-link class="mr-5 text-white" to="/">Voltar ao site</nuxt-link>
+      <nuxt-link class="mr-5 text-white" to="/logout">Sair</nuxt-link>
     </div>
   </header>
 

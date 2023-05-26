@@ -36,28 +36,41 @@ onMounted(async ()=>{
 
     <div v-if="loading"><p>Aguarde! Carregando suas compras... </p></div>
 
-    <table>
-      <thead>
-        <tr>
-          <th scope="col">#</th>
-          <th>Data</th>
-          <th>Total</th>
-          <th>Status</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr v-for="(order,i) in orders" :key="i">
-          <th scope="row">{{ order.id }}</th>
-          <td>{{ parseDate(order.dateCreated) }}</td>
-          <td>{{ order.total }}</td>
-          <td>
-            <div v-if="order.status != 'O'">
-              {{ order.statusDescription }}
-            </div>
-            <nuxt-link v-else target="_blank" :to="`/checkout/${order.id}/pagamento`">Efetuar pagamento</nuxt-link>
-          </td>
-        </tr>
-      </tbody>
-    </table>
+    <div class="relative overflow-x-auto shadow-md sm:rounded-lg">
+      <table>
+        <thead>
+          <tr>
+            <th scope="col">
+              # N. Pedido
+            </th>
+            <th scope="col">
+              Data
+            </th>
+            <th scope="col">
+              Total
+            </th>
+            <th scope="col">
+              Status
+            </th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr  v-for="(order,i) in orders" :key="i" class="bg-white">
+            <th scope="row" >{{order.id}}</th>
+            <td>{{ parseDate(order.dateCreated) }}</td>
+            <td>{{ order.total }}</td>
+            <td>
+              <div v-if="order.status != 'O'">
+                {{ order.statusDescription }}
+              </div>
+              <nuxt-link v-else target="_blank" :to="`/checkout/${order.id}/pagamento`">Efetuar pagamento</nuxt-link>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+
+
   </div>
 </template>

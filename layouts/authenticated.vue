@@ -30,16 +30,22 @@ useServerHead({
     </div>
   </header>
 
-  <div class="flex flex-wrap">
-    <div class="flex-none">
-      <ul>
-        <li><nuxt-link to="/minha-conta/meus-mapas">Meus mapas</nuxt-link></li>
-        <li><nuxt-link to="/minha-conta/minhas-compras">Minhas compras</nuxt-link></li>
-      </ul>
-    </div>
-    <div class="flex-grow p-5 bg-neutral-100">
-      <slot/>
-    </div>
+  <div class="p-5 border-b shadow-lg">
+    <ul class="flex flex-wrap">
+      <li><nuxt-link class="link" to="/minha-conta/meus-mapas">Meus mapas</nuxt-link></li>
+      <li><nuxt-link class="link" to="/minha-conta/minhas-compras">Minhas compras</nuxt-link></li>
+    </ul>
   </div>
 
+  <slot/>
+
 </template>
+
+<style scoped lang="postcss">
+  .link{
+    @apply mr-5;
+    &:hover{
+       @apply text-teal-400;
+     }
+  }
+</style>

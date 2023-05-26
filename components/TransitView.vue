@@ -7,12 +7,12 @@ const hasPlanets = computed(()=>{
 </script>
 
 <template>
-  <h2 class="my-3">{{transit.name}}</h2>
+  <h3 class="my-3 text-teal-500">{{transit.name}}</h3>
   <div class="mb-5">
     <div v-html="transit.birthmapText"></div>
   </div>
   <div v-if="hasPlanets" v-for="(item,x) in transit.planets" :key="x">
-    <h3 class="my-3">{{ item.name }}</h3>
+    <h4 class="my-3  text-teal-400">{{ item.name }}</h4>
     <div class="mb-5" >
        <div v-html="item.birthmapText"></div>
     </div>

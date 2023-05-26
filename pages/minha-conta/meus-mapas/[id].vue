@@ -35,8 +35,7 @@ onMounted(async ()=>{
 <template>
   <e-title>Mapa Natal</e-title>
   <div v-if="loading"><p>Aguarde! Carregando seu mapa astral... </p></div>
-  <div v-else class="card">
+  <div v-else class="card py-10">
     <birthmap-render :birthmap="birthmap" />
   </div>
-
 </template>

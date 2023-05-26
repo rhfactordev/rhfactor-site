@@ -11,7 +11,8 @@ export default defineNitroConfig({
         '/privacidade': {static: true},
         '/sobre-mim': {static: true},
         '/termos-de-uso': {static: true},
-        '/minha-conta/**' : { index: false }
+        '/minha-conta/' : { index: false },
+        '/minha-conta/**' : { index: false },
     },
     prerender: {
         routes:[
@@ -25,6 +26,9 @@ export default defineNitroConfig({
             '/sobre-mim',
             '/termos-de-uso',
         ],
-        ignore: ['/minha-conta']
+        ignore: [
+            '/minha-conta',
+            '/minha-conta/**'
+        ]
     },
 });

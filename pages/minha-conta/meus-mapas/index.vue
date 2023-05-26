@@ -1,3 +1,4 @@
+
 <script setup>
 definePageMeta({
   middleware: ['auth'],
@@ -5,7 +6,6 @@ definePageMeta({
 });
 </script>
 
-
 <template>
-  <h1>Olá</h1>
+  <h1>Meus mapas</h1>
 </template>

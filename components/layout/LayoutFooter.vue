@@ -65,7 +65,6 @@ const hasLinks = computed(()=>  props.links.length > 0 )
       </div>
     </div>
 
-    <!--Copyright section-->
     <div class="p-3 text-center">
       <p class="text-xs">Desenvolvido por <a class="font-semibold text-neutral-600 dark:text-neutral-400" href="https://www.rhfactor.com.br/">RHFactor</a></p>
     </div>

@@ -82,7 +82,7 @@ aside .title {
 }
 
 .card {
-    @apply block max-w-max bg-white drop-shadow-md;
+    @apply block bg-white drop-shadow-md;
 
 .title {
     @apply font-serif

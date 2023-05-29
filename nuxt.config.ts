@@ -1,6 +1,5 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
-    $schema: undefined,
     modules: [
         '@nuxtjs/tailwindcss',
         'nuxt-delay-hydration',
@@ -16,15 +15,12 @@ export default defineNuxtConfig({
         exposeConfig: true,
         // exposeLevel: 2,
         injectPosition: 'first',
-        viewer: true,
+        viewer: false,
     },
     delayHydration: {
         // enables nuxt-delay-hydration in dev mode for testing
         debug: process.env.NODE_ENV === 'development'
     },
-    // webpack: {
-    //     extractCSS: true,
-    // }
     runtimeConfig:{
         backendServer: process.env.BACKEND_SERVER || 'http://localhost:5000',
         domain: process.env.SITE_DOMAIN || 'localhost',

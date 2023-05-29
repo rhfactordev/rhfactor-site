@@ -10,6 +10,8 @@ export default defineNitroConfig({
         '/blog/**': {static: true},
         // '/loja': {static: true},
         // '/loja/**': {static: true},
+        '/lp': {static: true},
+        '/lp/**': {static: true},
         '/privacidade': {static: true},
         '/sobre-mim': {static: true},
         '/termos-de-uso': {static: true},

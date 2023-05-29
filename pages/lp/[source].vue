@@ -1,6 +1,7 @@
 <script setup>
 const route = useRoute()
 const source = computed(() => route.params.source)
+import { initAccordions } from 'flowbite'
 
 const { data } = await useFetch(`/api/lp`,{
   params:{
@@ -11,6 +12,10 @@ const { data } = await useFetch(`/api/lp`,{
 definePageMeta({
   layout: 'lp'
 });
+
+onMounted(() => {
+  initAccordions();
+})
 </script>
 
 <template>
@@ -29,7 +34,7 @@ definePageMeta({
           <p>A endometriose é uma condição que afeta as mulheres durante seus anos reprodutivos. É uma das doenças mais comuns na saúde reprodutiva feminina, mas infelizmente é muitas vezes mal compreendida e difícil de diagnosticar. De fato, estima-se que até 80% das mulheres com endometriose nunca tenham sido diagnosticadas. Se você tem ou acha que pode ter endometriose, nós gostaríamos de ajudar - clique abaixo para entrar em contato com nossos especialistas.</p>
         </div>
         <div class="text-center mb-3">
-          <iframe src="https://www.youtube.com/embed/98GRVxcLHJI" title="YouTube video" allowfullscreen="" frameborder="0" class="w-full aspect-video mb-5" data-v-c3fb952c=""></iframe>
+          <iframe src="https://www.youtube.com/embed/98GRVxcLHJI" title="YouTube video" allowfullscreen="" class="w-full aspect-video mb-5" data-v-c3fb952c=""></iframe>
           <h3>Transforme o seu desejo, em um sonho realizado com a Neovita. <br/> Nós podemos te ajudar.</h3>
         </div>
       </div>
@@ -37,12 +42,12 @@ definePageMeta({
   </section>
 
   <section class="bg-teal-600">
-    <div class="container">
+    <div class="container pb-10">
       <h2 class="p-10 text-white text-center text-3xl">Perguntas Frequentes</h2>
       <hr/>
 
 
-      <div id="accordion-collapse" data-accordion="collapse">
+      <div id="accordion-collapse" class="bg-neutral-100 my-10" data-accordion="collapse">
         <h2 id="accordion-collapse-heading-1">
           <button type="button" class="flex items-center justify-between w-full p-5 font-medium text-left text-gray-500 border border-b-0 border-gray-200 rounded-t-xl focus:ring-4 focus:ring-gray-200 dark:focus:ring-gray-800 dark:border-gray-700 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-800" data-accordion-target="#accordion-collapse-body-1" aria-expanded="true" aria-controls="accordion-collapse-body-1">
             <span>What is Flowbite?</span>

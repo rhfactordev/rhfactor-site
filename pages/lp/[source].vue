@@ -1,7 +1,10 @@
 <script setup>
+import {initAccordions} from 'flowbite'
+
+const config = useRuntimeConfig()
+
 const route = useRoute()
 const source = computed(() => route.params.source)
-import { initAccordions } from 'flowbite'
 
 const { data } = await useFetch(`/api/lp`,{
   params:{
@@ -45,8 +48,6 @@ onMounted(() => {
     <div class="container pb-10">
       <h2 class="p-10 text-white text-center text-3xl">Perguntas Frequentes</h2>
       <hr/>
-
-
       <div id="accordion-collapse" class="bg-neutral-100 my-10" data-accordion="collapse">
         <h2 id="accordion-collapse-heading-1">
           <button type="button" class="flex items-center justify-between w-full p-5 font-medium text-left text-gray-500 border border-b-0 border-gray-200 rounded-t-xl focus:ring-4 focus:ring-gray-200 dark:focus:ring-gray-800 dark:border-gray-700 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-800" data-accordion-target="#accordion-collapse-body-1" aria-expanded="true" aria-controls="accordion-collapse-body-1">
@@ -90,9 +91,20 @@ onMounted(() => {
           </div>
         </div>
       </div>
-
-
     </div>
   </section>
 
+  <section class="bg-teal-400">
+    <div class="container grid grid-cols-1 md:grid-cols-2">
+      <div class="p-10 md:p-20">
+        <p class="text-white text-3xl my-10">Sua nova vida começa aqui!</p>
+        <p class="text-white border-l border-white pl-6">Preencha o formulário e garanta a oportunidade de conhecer e iniciar o seu tratamento para endometriose. Agende sua consulta com um especialista.</p>
+      </div>
+      <div class="mb-10">
+        <div class="bg-white rounded-md p-10 md:my-20 mx-auto">
+          <BirthForm :serviceId="1" :domain="config.domain" />
+        </div>
+      </div>
+    </div>
+  </section>
 </template>

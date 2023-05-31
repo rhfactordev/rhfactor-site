@@ -95,13 +95,13 @@ onMounted(() => {
   </section>
 
   <section class="bg-teal-400">
-    <div class="container grid grid-cols-1 md:grid-cols-2">
-      <div class="p-10 md:p-20">
+    <div class="container grid grid-cols-1 lg:grid-cols-2">
+      <div class="p-10 lg:p-20">
         <p class="text-white text-3xl my-10">Sua nova vida começa aqui!</p>
         <p class="text-white border-l border-white pl-6">Preencha o formulário e garanta a oportunidade de conhecer e iniciar o seu tratamento para endometriose. Agende sua consulta com um especialista.</p>
       </div>
       <div class="mb-10">
-        <div class="bg-white rounded-md p-10 md:my-20 mx-auto">
+        <div class="bg-white rounded-md p-10 lg:my-20 mx-auto">
           <BirthForm :serviceId="1" :domain="config.domain" />
         </div>
       </div>

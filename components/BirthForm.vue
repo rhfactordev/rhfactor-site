@@ -9,14 +9,14 @@ const reDatetime = /\d{4}-[01]\d-[0-3]\dT[0-2]\d:[0-5]\d/
 const loading = ref(false)
 const cityFindInput = ref("")
 const cityList = ref([])
-const selectedCity = ref({"label":"Santo André, São Paulo - BR","value":"1"})
+const selectedCity = ref({})
 const signupForm = ref({
-  name: "Roberto Fonseca Alves",
-  email: "roberto@rhfactor.com.br",
-  city: "1",
-  birthDate: "1986-07-03T10:15",
-  serviceId: "1",
-  accpetedTerms: true
+  name: "",
+  email: "",
+  city: "",
+  birthDate: "",
+  serviceId: "",
+  accpetedTerms: false
 })
 
 const showCityFindInput = computed(()=> selectedCity.value.value == null)

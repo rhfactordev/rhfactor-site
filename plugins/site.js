@@ -9,6 +9,8 @@ export default defineNuxtPlugin(async (nuxtApp) => {
         whatsapp: '+55 11 99999-4444',
         email: 'contato@andrezaastrologia.com.br',
 
+        mercadoPagoPublicKey : 'TEST-52a522a0-1f04-45d7-a82b-a22e7f86aabf',
+
         servicesLink : [
             {
                 name : 'Mapa Astral',

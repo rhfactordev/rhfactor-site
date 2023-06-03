@@ -102,8 +102,8 @@ definePageMeta({
       <checkout-checkpoint-steps />
     </div>
 
-    <section v-if="hasOrder" class="shadow-lg flex flex-wrap rounded-lg w-10/12 mx-auto">
-      <div class="bg-neutral-200 p-10 w-full md:w-4/12 lg:w-3/12 rounded-t-lg md:rounded-l-lg md:rounded-tr-none ">
+    <section v-if="hasOrder" class="shadow-lg flex flex-wrap md:flex-nowrap rounded-lg w-10/12 mx-auto">
+      <div class="flex-grow md:flex-none bg-neutral-200 p-10 rounded-t-lg md:rounded-l-lg md:rounded-tr-none ">
         <h2 class="mb-8">Resumo do pedido</h2>
 
         <p class="mb-3 flex justify-between">Itens <span>{{order.items.length}}</span></p>
@@ -112,7 +112,7 @@ definePageMeta({
         <p class="mb-10 font-bold flex justify-between">Total: <span>R$ {{order.total}}</span></p>
 
         <p>Forma de pagamento:</p>
-        <payment-options
+        <LazyCheckoutPaymentOptions
             v-if="hasPayments"
             :payment-options="paymentOptions"
             @onSelectPaymentMethod="selectPaymentMethod"
@@ -120,13 +120,15 @@ definePageMeta({
         <loadin-icon v-else />
 
       </div>
-      <div class="flex-grow bg-white rounded-b-lg md:rounded-r-lg md:rounded-bl-none p-10" >
-        <LazyCheckoutMercadoPagoForm v-if="isMP"
-            :method="selectedPayment"
-            :order="order"
+      <div class="flex-grow bg-white rounded-b-lg md:rounded-r-lg md:rounded-bl-none p-10">
+        <div class="max-w-2xl m-auto">
+          <LazyCheckoutMercadoPagoForm v-if="isMP"
+                                       :method="selectedPayment"
+                                       :order="order"
           />
-        <div v-else>
-          <p>Não foram encontrados meios de pagamento</p>
+          <div v-else>
+            <p>Não foram encontrados meios de pagamento</p>
+          </div>
         </div>
       </div>
     </section>

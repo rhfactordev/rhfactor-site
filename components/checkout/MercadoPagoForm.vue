@@ -2,11 +2,14 @@
   import {useNuxtApp} from "#app";
 
   const props = defineProps(['method', 'order'])
+  const router = useRouter()
   const app = useNuxtApp()
   const mp = app.mp
 
+
   const loading = ref(false)
   const payment = ref({
+    order : 0,
     paymentMethodId: "",
     transactionAmount: 0,
     identificationType: "CPF",
@@ -27,6 +30,33 @@
 
   const isCreditCard = computed(()=> method.value.type == 'credit-card' )
   const isPix = computed(()=> method.value.type == 'pix' )
+
+  const verifyPayment = async () => {
+    if( loading.value ){
+      console.log('verifyPayment exiting...')
+      return
+    }
+    loading.value = true
+    const { data , error } = await useFetch('/api/processPayment', {
+      method: 'POST',
+      watch: false,
+      body : payment.value
+    })
+    loading.value = false
+
+    if( error.value ){
+      alert(error.value.data.message)
+      if( isCreditCard.value ){
+        alert('Reiniciar o formulário')
+      }
+      return
+    }
+
+    // router.push(`/checkout/${order.value.id}/obrigado`)
+
+    console.log('Obrigado!', data.value )
+
+  }
 
   const initCreditCard = () =>{
     loading.value = true
@@ -62,14 +92,15 @@
   const initPayment = () =>{
 
     payment.value = {
+      order: order.value.id,
       paymentMethodId: method.value.type,
       transactionAmount: order.value.total,
       payer: {
-        email: "",
-        firstName: "",
-        lastName: "",
+        email: "roberto@rhfactor.com.br",
+        firstName: "Roberto",
+        lastName: "Alves",
         identification: {
-          number: "",
+          number: "228.838.378-05",
           type: "CPF",
         }
       }
@@ -100,20 +131,31 @@
 
 <template>
 
-  <pre>
-    payment : {{ payment }}
-  </pre>
 
   <div v-if="loading">
     <p class="text-center mb-5">Inicializando integração com Mercado Pago, aguarde!</p>
     <loadin-icon class="mb-10" />
   </div>
 
-  <form v-else class="w-full" id="form-checkout">
+  <form v-else @submit.prevent="verifyPayment" method="post" class="w-full" id="form-checkout">
 
     <label for="mpFormPayerName">Nome</label>
-    <input class="form-control" v-model="payment.payer.firstName" id="mpFormPayerName" name="payerFirstName" type="text">
+    <input required class="form-control mb-3" v-model="payment.payer.firstName" id="mpFormPayerName" name="payerFirstName" type="text" />
 
+    <label for="mpFormPayerLastname">Sobrenome</label>
+    <input required class="form-control mb-3" v-model="payment.payer.lastName" id="mpFormPayerLastname" name="payerLastName" type="text" />
+
+    <label for="mpFormPayerEmail">E-mail</label>
+    <input required class="form-control mb-3" v-model="payment.payer.email" id="mpFormPayerEmail" name="payerEmail" type="email" />
+
+    <label for="mpFormPayerIdentificationType">Tipo de documento</label>
+    <select required class="form-control mb-3" v-model="payment.payer.identification.type" id="mpFormPayerIdentificationType" name="payerIdentificationType">
+      <option value="CPF">CPF</option>
+      <option value="CNPJ">CNPJ</option>
+    </select>
+
+    <label for="mpFormPayerIdentificationNumber">Número do documento</label>
+    <input required class="form-control mb-3" v-model="payment.payer.identification.number" id="mpFormPayerIdentificationNumber" name="payerIdentificationNumber" type="text" />
 
     <!--
     <div class="row" v-if="isCreditCard">

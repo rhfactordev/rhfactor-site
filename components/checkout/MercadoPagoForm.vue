@@ -52,9 +52,13 @@
       return
     }
 
-    // router.push(`/checkout/${order.value.id}/obrigado`)
+    if( data.value.status ){
+      router.push(`/checkout/${order.value.id}/obrigado`)
+      return
+    }
 
-    console.log('Obrigado!', data.value )
+    alert( data.value.message )
+
 
   }
 

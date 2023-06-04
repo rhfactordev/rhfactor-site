@@ -7,8 +7,14 @@ export default defineEventHandler(async (event) => {
     const config = useRuntimeConfig()
     const payment = await readBody(event)
 
+    const responseReturn = {
+        status : false,
+        message : null
+    }
+
     if( !payment ){
-        throw Error("Pagamento não definido.")
+        responseReturn.message = "Pagamento não definido."
+        return responseReturn
     }
 
     const validName = payment.payer.firstName.length > 2 && payment.payer.lastName.length > 2
@@ -23,11 +29,11 @@ export default defineEventHandler(async (event) => {
         )
 
     if (!validName || !validEmail || !isValidDocument ) {
-        console.error('[processPayment]',!validName , !validEmail , !isValidDocument)
-        throw Error("Verifique os campos do formulário")
+        responseReturn.message = "Verifique os campos do formulário"
+        return responseReturn
     }
 
-    let status = false
+
 
     try{
         const response = await $fetch(`${config.backendServer}/client/v1/order/${payment.order}/payment?domain=${config.domain}`, {
@@ -37,15 +43,16 @@ export default defineEventHandler(async (event) => {
             },
             body: payment,
         })
-        status = true
+
+        responseReturn.status = response.success
+        responseReturn.message = response.message
+
     }catch (e){
-        console.log('Erro processar pagametno', e.data)
-        throw new Error(e.data.message)
+        responseReturn.message = e.data._embedded.errors[0].message
+        // TODO: Adicionar observador
     }
 
-    return {
-        status
-    }
+    return responseReturn
 
 })
 

@@ -16,7 +16,7 @@ useServerHead({
   <header>
 
     <div class="bg-teal-600 text-white text-sm">
-      <div class="container flex justify-between">
+      <div class="container justify-between hidden md:flex">
         <div>
           <Icon class="text-white" name="mdi:phone" /> {{site.phone}}
         </div>
@@ -32,7 +32,7 @@ useServerHead({
       <div class="container flex justify-between">
         <div class="m-auto md:m-0">
           <nuxt-link to="/">
-            <img class="max-w-md" :src="site.image" :alt="`Logo de ${site.title}`">
+            <img class="max-w-md max-h-12 md:max-h-full" :src="site.image" :alt="`Logo de ${site.title}`">
           </nuxt-link>
         </div>
         <div class="hidden md:inline-flex py-10">

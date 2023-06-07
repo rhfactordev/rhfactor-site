@@ -52,13 +52,17 @@
       return
     }
 
+    // O Status da operação deve vir true quando foi processado
     if( data.value.status ){
+      if( data.value.status == 'pending_waiting_transfer' ){
+        router.push(`/checkout/${order.value.id}/pix`)
+        return
+      }
       router.push(`/checkout/${order.value.id}/obrigado`)
       return
     }
 
     alert( data.value.message )
-
 
   }
 

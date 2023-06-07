@@ -119,7 +119,7 @@ watch(cityFindInput, async (newVal) => {
     <input type="email" id="birthmapFormEmail" class="form-control mb-3" name="email" required placeholder="email@domínio.com.br" v-model="signupForm.email">
 
     <label class="text-sm" for="birthmapFormBirthdate">Data e Hora de Nascimento</label>
-    <input type="datetime-local" id="birthmapFormBirthdate" class="form-control mb-3" required placeholder="Data e Hora de nascimento" name="birthdate" v-model="signupForm.birthDate">
+    <input type="datetime-local" id="birthmapFormBirthdate" class="form-control mb-3" required name="birthdate" v-model="signupForm.birthDate">
 
     <label class="text-sm mb-3" for="city">Digite o nome de sua Cidade de Nascimento e clique em buscar para selecionar *</label>
     <div v-if="showCityFindInput" class="mb-5 flex">
@@ -149,8 +149,10 @@ watch(cityFindInput, async (newVal) => {
       </label>
     </div>
 
-    <button :disabled="loading" type="submit" class="btn w-full p-3">
-      <span class="h2 text-white">Solicitar Meu Mapa Astral Agora!</span>
+
+
+    <button :disabled="loading" type="submit" class="bg-teal-400 block text-white shadow-lg shadow-gray-300 p-6 rounded-xl w-full">
+      <span class="h2 text-white">Obtenha seu Mapa Astral e mude sua vida!</span>
     </button>
 
   </form>

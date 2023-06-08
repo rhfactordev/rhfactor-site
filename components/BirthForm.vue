@@ -149,9 +149,7 @@ watch(cityFindInput, async (newVal) => {
       </label>
     </div>
 
-
-
-    <button :disabled="loading" type="submit" class="bg-teal-400 block text-white shadow-lg shadow-gray-300 p-6 rounded-xl w-full">
+    <button :disabled="loading" type="submit" class="bg-teal-400 hover:bg-teal-500 block text-white shadow-lg shadow-gray-300 p-6 rounded-xl w-full">
       <span class="h2 text-white">Obtenha seu Mapa Astral e mude sua vida!</span>
     </button>
 

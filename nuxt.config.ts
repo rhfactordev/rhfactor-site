@@ -19,7 +19,7 @@ export default defineNuxtConfig({
     },
     delayHydration: {
         // enables nuxt-delay-hydration in dev mode for testing
-        debug: process.env.NODE_ENV === 'development'
+        debug: false //   process.env.NODE_ENV === 'development'
     },
     runtimeConfig:{
         backendServer: process.env.BACKEND_SERVER || 'http://localhost:5000',

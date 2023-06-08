@@ -19,6 +19,8 @@
   },
   "dependencies": {
     "@pinia/nuxt": "^0.4.11",
-    "@vueuse/nuxt": "^10.1.2"
+    "@vueuse/nuxt": "^10.1.2",
+    "cpf-cnpj-validator": "^1.0.3",
+    "flowbite": "^1.6.5"
   }
 }

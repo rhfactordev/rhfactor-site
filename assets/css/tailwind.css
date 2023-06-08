@@ -31,6 +31,11 @@ P {
     @apply font-sans font-normal text-sm mb-4 space-y-4
 }
 
+.container{
+    @apply px-10 md:px-28 md:mx-auto;
+}
+
+
 /**
   Alerts
  */

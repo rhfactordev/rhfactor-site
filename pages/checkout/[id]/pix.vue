@@ -10,6 +10,8 @@ const order = ref({})
 const loading = ref(false)
 
 const orderId = computed(()=> route.params.id >= 1 ? route.params.id : 1 )
+const hasOrder = computed(()=> orderId.value && order.value.id != null )
+const hasQrCode = computed(()=> hasOrder.value && order.value.qrcodeBase64 != null )
 
 const getPixInfo = async () =>{
   if( loading.value ){
@@ -18,7 +20,7 @@ const getPixInfo = async () =>{
   loading.value = true
   const { data, error } = await useFetch("/api/order-pix", {
     params:{
-      id : orderId
+      id : orderId.value
     }
   })
   loading.value = false
@@ -53,8 +55,10 @@ const verifyPayment = async () =>{
 
 }
 
-onBeforeMount(async ()=>{
-  await getPixInfo()
+onMounted(async ()=>{
+  setTimeout(async ()=>{
+    await getPixInfo()
+  }, 1000);
 })
 
 </script>
@@ -62,9 +66,16 @@ onBeforeMount(async ()=>{
 <template>
   <main>
     <e-title>Pagamento Pix</e-title>
-    <section class="py-10">
+
+    <section class="py-10" v-if="loading">
+      <div class="m-auto w-full md:w-5/12 py-10 text-center">
+        <h2 class="text-teal-800 h4">Carregando...</h2>
+      </div>
+    </section>
+
+    <section v-if="hasQrCode" class="py-10">
       <div class="m-auto w-full md:w-5/12 p-10">
-        <h2 class="text-primary text-center h4">QR Code</h2>
+        <h2 class="text-teal-800 text-center h4">QR Code</h2>
         <img class="w-full py-10" :src="`data:image/jpeg;base64,${order.qrcodeBase64}`" />
 
         <p class="text-center">Caso não consiga ver o QRCode,
@@ -79,6 +90,20 @@ onBeforeMount(async ()=>{
         <p>Caso você tenha efetuado seu pagamento, clique no botão abaixo para informar seu pagamento!</p>
 
         <button :disabled="loading" @click="verifyPayment" class="bg-teal-400 hover:bg-teal-500 block text-white shadow-lg shadow-gray-300 p-3 rounded-xl w-full mb-10">Informar pagamento</button>
+
+      </div>
+    </section>
+    
+
+    <section class="py-10" v-else v-if="!loading && hasOrder">
+      <div class="m-auto w-full md:w-5/12 py-10 text-center">
+        <h2 class="text-teal-800 h4">Ops! Houve um erro</h2>
+        <p>Houve um erro ao tentar obter os dados de seu pagamento.</p>
+
+        <div class="border py-5">
+          <p> Status: {{ order.status }}</p>
+          <p> Detalhes: {{ order.detail }}</p>
+        </div>
 
       </div>
     </section>

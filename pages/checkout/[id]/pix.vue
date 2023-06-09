@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import ETitle from "~/components/elements/ETitle.vue";
 import {useNuxtApp} from "#app";
+import { useClipboard, usePermission } from '@vueuse/core'
 
 const app = useNuxtApp()
 const site = app.site
@@ -8,6 +9,11 @@ const route = useRoute()
 const router = useRouter()
 const order = ref({})
 const loading = ref(false)
+
+
+const { copy, copied } = useClipboard()
+const permissionRead = usePermission('clipboard-read')
+const permissionWrite = usePermission('clipboard-write')
 
 const orderId = computed(()=> route.params.id >= 1 ? route.params.id : 1 )
 const hasOrder = computed(()=> orderId.value && order.value.id != null )
@@ -61,6 +67,11 @@ onMounted(async ()=>{
   }, 1000);
 })
 
+watch(copied, async (newVal) => {
+  // TODO: Deixar mais sutil
+  alert('Chaves copiadas')
+})
+
 </script>
 
 <template>
@@ -76,7 +87,7 @@ onMounted(async ()=>{
     <section v-if="hasQrCode" class="py-10">
       <div class="m-auto w-full md:w-5/12 p-10">
         <h2 class="text-teal-800 text-center h4">QR Code</h2>
-        <img class="w-full py-10" :src="`data:image/jpeg;base64,${order.qrcodeBase64}`" />
+        <img class="m-auto max-w-xs py-10" :src="`data:image/jpeg;base64,${order.qrcodeBase64}`" />
 
         <p class="text-center">Caso não consiga ver o QRCode,
           <a class="text-teal-400 hover:text-teal-600" :href="order.ticketUrl" target="_blank">clique aqui</a>.
@@ -84,7 +95,7 @@ onMounted(async ()=>{
 
         <textarea readonly class="form-control" id="pixQrcode" aria-label="Pix Copia e Cola" v-model="order.qrcode"></textarea>
 
-        <button class="bg-teal-400 hover:bg-teal-500 block text-white shadow-lg shadow-gray-300 p-3 rounded-xl w-full mb-10">Copiar</button>
+        <button @click="copy(order.qrcode)" class="bg-teal-400 hover:bg-teal-500 block text-white shadow-lg shadow-gray-300 p-3 rounded-xl w-full mb-10">Copiar</button>
 
         <h2 class="text-primary text-center h4 mb-5">Já efetuou seu pagamento?</h2>
         <p>Caso você tenha efetuado seu pagamento, clique no botão abaixo para informar seu pagamento!</p>
@@ -93,7 +104,7 @@ onMounted(async ()=>{
 
       </div>
     </section>
-    
+
 
     <section class="py-10" v-else v-if="!loading && hasOrder">
       <div class="m-auto w-full md:w-5/12 py-10 text-center">

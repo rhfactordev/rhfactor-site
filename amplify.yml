@@ -1,0 +1,21 @@
+version: 1
+frontend:
+  phases:
+    preBuild:
+      commands:
+        - npm ci
+    build:
+      commands:
+        - echo "SITE_TITLE=SITE_TITLE" >> .env
+        - echo "SITE_DOMAIN=SITE_DOMAIN" >> .env
+        - echo "MERCADOPAGO_PUBLIC=MERCADOPAGO_PUBLIC" >> .env
+        - echo "BACKEND_SERVER=BACKEND_SERVER" >> .env
+        - npm run build
+  artifacts:
+    # IMPORTANT - Please verify your build output directory
+    baseDirectory: /
+    files:
+      - '**/*'
+  cache:
+    paths:
+      - node_modules/**/*

@@ -60,8 +60,6 @@ const loadPayments = async () =>{
   console.error('Erro carregar pagamentos','loadPayments', error.value)
 }
 
-
-
 onMounted(async ()=>{
   setTimeout(async ()=>{
     await loadOrder()

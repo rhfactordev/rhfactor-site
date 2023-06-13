@@ -1,6 +1,7 @@
 <script setup>
 const props = defineProps(["title", "document", "services", "links", "description", "phone", "email", "social", "logo"])
 const hasLinks = computed(()=>  props.links != null && props.links.length > 0 )
+const hasServices = computed(()=>  props.services != null && props.services.length > 0 )
 </script>
 
 <template>
@@ -27,7 +28,7 @@ const hasLinks = computed(()=>  props.links != null && props.links.length > 0 )
         </div>
 
 
-        <div class="hidden md:block" :class="{ 'col-span-2' : !hasLinks }"  >
+        <div v-if="hasServices" class="hidden md:block" :class="{ 'col-span-2' : !hasLinks }"  >
           <h2 class="mb-4 flex justify-center font-semibold uppercase md:justify-start">
             Serviços Digitais
           </h2>

@@ -6,6 +6,7 @@ const site = useNuxtApp().site
 const session = useSessionStore()
 
 const isAuthenticated = computed(()=> session.isAuthenticated )
+const hasServiceLink =  computed(()=> site.servicesLink && site.servicesLink.length > 0 )
 
 useServerHead({
   titleTemplate: `%s - ${site.title}`,
@@ -38,7 +39,7 @@ useServerHead({
     </div>
     <div class="hidden md:inline-flex">
       <ul class="flex space-x-5 p-3 mx-4 bg-teal-600">
-        <li class="inline-flex items-center">
+        <li v-if="hasServiceLink" class="inline-flex items-center">
           <nuxt-link class="hover:text-emerald-900" :to="site.servicesLink[0].target">
             {{ site.servicesLink[0].name }}
           </nuxt-link>

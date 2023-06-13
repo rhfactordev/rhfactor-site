@@ -1,6 +1,8 @@
 <script setup>
   import {useSessionStore} from "~/stores/session";
+  import {useNuxtApp} from "#app";
 
+  const site = useNuxtApp().site
   const dropdownState = ref(false)
   const menuState = ref(false)
   const isMenuOpened = computed(()=> menuState.value )
@@ -46,11 +48,16 @@
           <li>
             <nuxt-link @click="closeDropdown" to="/contato" class="link" exact-active-class="text-teal-900">Contato</nuxt-link>
           </li>
-          <li v-if="!isAuthenticated" class="md:hidden">
+          <li v-if="!isAuthenticated" class="md:hidden mb-1">
             <nuxt-link @click="closeDropdown" to="/login" class="link bg-teal-500" exact-active-class="text-teal-900">Acessar minha conta</nuxt-link>
           </li>
-          <li v-else class="md:hidden">
+          <li v-else class="md:hidden mb-1">
             <nuxt-link @click="closeDropdown" to="/minha-conta" class="link bg-teal-500" exact-active-class="text-teal-900">Minha conta</nuxt-link>
+          </li>
+          <li class="md:hidden mb-1">
+            <nuxt-link @click="closeDropdown" class="link bg-teal-500" exact-active-class="text-teal-900" :to="site.servicesLink[0].target">
+              {{ site.servicesLink[0].name }}
+            </nuxt-link>
           </li>
         </ul>
       </div>

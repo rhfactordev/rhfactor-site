@@ -16,7 +16,7 @@ useServerHead({
     <div class="container flex justify-between">
       <div class="m-auto md:m-0">
         <nuxt-link to="/">
-          <img class="max-w-md" :src="site.image" :alt="`Logo de ${site.title}`">
+          <img class="w-full max-w-md" :src="site.image" :alt="`Logo de ${site.title}`">
         </nuxt-link>
       </div>
     </div>

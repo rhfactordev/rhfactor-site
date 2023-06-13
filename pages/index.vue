@@ -20,8 +20,7 @@ useServerSeoMeta(meta)
 
 <template>
   <main>
-
-    <h1>{{site.name}}</h1>
+    <h1 class="hidden">{{site.title}}</h1>
 
     <section class="p-10 bg-teal-50">
       <h2 class="title">Últimos posts</h2>

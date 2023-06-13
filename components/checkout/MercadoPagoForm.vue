@@ -103,11 +103,11 @@
       paymentMethodId: method.value.type,
       transactionAmount: order.value.total,
       payer: {
-        email: "roberto@rhfactor.com.br",
-        firstName: "Roberto",
-        lastName: "Alves",
+        email: "",
+        firstName: "",
+        lastName: "",
         identification: {
-          number: "228.838.378-05",
+          number: "",
           type: "CPF",
         }
       }

@@ -20,11 +20,8 @@ useServerHead({
         <div>
           <Icon class="text-white" name="mdi:phone" /> {{site.phone}}
         </div>
-        <div>
-          Responsável técnico
-        </div>
-        <div>
-          Redes sociais
+        <div class="p-1">
+          <layout-social class="text-xs" :social="site.social" />
         </div>
       </div>
     </div>

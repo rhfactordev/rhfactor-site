@@ -155,7 +155,8 @@ watch(cityFindInput, async (newVal) => {
     </div>
 
     <button :disabled="loading" type="submit" class="bg-teal-400 hover:bg-teal-500 block text-white shadow-lg shadow-gray-300 p-6 rounded-xl w-full">
-      <span class="h2 text-white">Obtenha seu Mapa Astral e mude sua vida!</span>
+      <span v-if="!loading" class="h2 text-white">Obtenha seu Mapa Astral e mude sua vida!</span>
+      <loadin-icon v-else />
     </button>
 
   </form>

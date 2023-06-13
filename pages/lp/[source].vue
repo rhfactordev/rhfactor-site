@@ -1,17 +1,17 @@
 <script setup>
 import {initAccordions} from 'flowbite'
 
-const config = useRuntimeConfig()
-
 const route = useRoute()
 const source = computed(() => route.params.source)
-const hasPage = computed(() => page != null)
+
 
 const { data  : page } = await useFetch(`/api/lp`,{
   params:{
     source
   }
 })
+
+const hasPage = computed(() => page != null)
 
 // const meta = {
 //   title: page.value.title,
@@ -36,22 +36,22 @@ onMounted(() => {
 <template>
 
   <section v-if="hasPage" class="container">
-    <h1 class="m-auto text-center py-10 px-5 font-sans text-teal-600">{{ page.headline }}</h1>
-    <h2 class="m-auto text-center max-w-2xl text-teal-500 text-md">{{ page.subheadline }}</h2>
+    <h1 class="m-auto text-center py-10 px-5 font-sans text-teal-600">{{ page?.headline || 'Titulo' }}</h1>
+    <h2 class="m-auto text-center max-w-2xl text-teal-500 text-md">{{ page?.subheadline || 'Subtitulo' }}</h2>
     <div class="mx-auto max-w-lg ">
       <BirthForm id="mainForm"
-                 class="lg:px-5 py-10" :serviceId="1" :domain="config.domain" />
+                 class="lg:px-5 py-10" :serviceId="1" />
     </div>
   </section>
 
   <section v-if="hasPage" class="bg-teal-100">
     <div class="container py-10">
-      <h2 class="text-3xl text-teal-800 text-center uppercase mb-10">{{ page.sections.description.title }}</h2>
+      <h2 class="text-3xl text-teal-800 text-center uppercase mb-10">{{ page?.sections.description.title }}</h2>
       <div class="grid grid-cols-1 md:grid-cols-2 gap-16 mb-3">
-        <div v-html="page.sections.description.description"></div>
+        <div v-html="page?.sections.description.description"></div>
         <div class="text-center mb-3">
-          <iframe title="Video" class="w-full aspect-video mb-5" :src="page.sections.description.video" allowfullscreen/>
-          <a class="bg-teal-800 hover:bg-teal-700 block text-white shadow-lg shadow-gray-300 p-6 rounded-xl" href="#mainForm">{{ page.sections.description.callToAction.label }}</a>
+          <iframe title="Video" class="w-full aspect-video mb-5" :src="page?.sections.description.video" allowfullscreen/>
+          <a class="bg-teal-800 hover:bg-teal-700 block text-white shadow-lg shadow-gray-300 p-6 rounded-xl" href="#mainForm">{{ page?.sections.description.callToAction.label }}</a>
         </div>
       </div>
     </div>
@@ -97,13 +97,13 @@ onMounted(() => {
 
   <section v-if="hasPage" class="bg-teal-200">
     <div class="container py-10">
-      <h2 class="text-3xl text-teal-800 text-center uppercase mb-10">{{ page.sections.about.title }}</h2>
+      <h2 class="text-3xl text-teal-800 text-center uppercase mb-10">{{ page?.sections.about.title }}</h2>
       <div class="grid grid-cols-1 md:grid-cols-2 gap-16 mb-3">
-        <div class="md:order-2" v-html="page.sections.about.description">
+        <div class="md:order-2" v-html="page?.sections.about.description">
         </div>
         <div class="text-center mb-3">
-          <img class="w-full mb-5 clear" :src="page.sections.about.image" :alt="`Image for ${page.sections.about.title}`"/>
-          <a class="bg-teal-400 hover:bg-teal-500 block text-white shadow-lg shadow-gray-300 p-6 rounded-xl" href="#mainForm">{{ page.sections.about.callToAction.label }}</a>
+          <img class="w-full mb-5 clear" :src="page?.sections.about.image" :alt="`Image for ${page?.sections.about.title}`"/>
+          <a class="bg-teal-400 hover:bg-teal-500 block text-white shadow-lg shadow-gray-300 p-6 rounded-xl" href="#mainForm">{{ page?.sections.about.callToAction.label }}</a>
         </div>
       </div>
     </div>

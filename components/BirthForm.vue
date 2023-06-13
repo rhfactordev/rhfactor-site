@@ -1,6 +1,6 @@
 <script setup>
 
-const props = defineProps(['serviceId', 'domain'])
+const props = defineProps(['serviceId'])
 const router = useRouter()
 
 const reEmail = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
@@ -78,12 +78,18 @@ const selectCity = (city) => {
 
 const searchCity = async () => {
   if (loading.value) {
+    console.log('searchCity', 'exiting...')
     return
   }
   loading.value = true
-  const { data, error } = await useFetch(`/api/search-city?city=${cityFindInput.value}`)
+  const { data, error } = await useFetch(`/api/city`,{
+    query : {
+      city : cityFindInput.value
+    },
+    watch : false
+  })
   loading.value = false
-  if( error.value == null ){
+  if( !error.value ){
     cityList.value = data.value.cityList
     return
   }
@@ -94,7 +100,6 @@ const clearSelectedCity = () => {
   selectedCity.value = {}
   cityList.value = []
 }
-
 onBeforeUnmount(()=>{
   clearSelectedCity()
   signupForm.value = {}
@@ -154,5 +159,6 @@ watch(cityFindInput, async (newVal) => {
     </button>
 
   </form>
+
 </template>
 

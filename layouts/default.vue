@@ -48,7 +48,9 @@ useServerHead({
     </div>
   </div>
   <header class="bg-white sticky top-0 z-40">
-    <layout-navbar/>
+    <layout-navbar
+        :services="site.servicesLink"
+    />
   </header>
   <nuxt-loading-indicator />
   <slot/>

@@ -2,6 +2,8 @@
   import {useSessionStore} from "~/stores/session";
   import {useNuxtApp} from "#app";
 
+  const props = defineProps(["services"])
+
   const site = useNuxtApp().site
   const dropdownState = ref(false)
   const menuState = ref(false)
@@ -21,6 +23,8 @@
   }
 
   const isAuthenticated = computed(()=> session.isAuthenticated )
+  const hasServices = computed(()=>  props.services != null && props.services.length > 0 )
+  const services = computed(()=>  props.services != null && props.services )
 
 </script>
 
@@ -54,9 +58,9 @@
           <li v-else class="md:hidden mb-1">
             <nuxt-link @click="closeDropdown" to="/minha-conta" class="link bg-teal-500" exact-active-class="text-teal-900">Minha conta</nuxt-link>
           </li>
-          <li class="md:hidden mb-1">
-            <nuxt-link @click="closeDropdown" class="link bg-teal-500" exact-active-class="text-teal-900" :to="site.servicesLink[0].target">
-              {{ site.servicesLink[0].name }}
+          <li v-if="hasServices" class="md:hidden mb-1">
+            <nuxt-link @click="closeDropdown" class="link bg-teal-500" exact-active-class="text-teal-900" :to="services[0].target">
+              {{ services[0].name }}
             </nuxt-link>
           </li>
         </ul>

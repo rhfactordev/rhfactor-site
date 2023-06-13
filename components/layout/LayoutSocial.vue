@@ -8,7 +8,7 @@
        :href="target"
        :key="index"
        target="_blank"
-       class="mr-6 text-neutral-200 hover:text-white">
+       class="mr-3 text-neutral-200 hover:text-white">
       <span class="hidden"> {{ name }} </span>
       <IconCSS :name="icon" />
     </a>

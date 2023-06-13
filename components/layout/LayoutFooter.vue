@@ -1,6 +1,6 @@
 <script setup>
 const props = defineProps(["title", "document", "services", "links", "description", "phone", "email", "social", "logo"])
-const hasLinks = computed(()=>  props.links.length > 0 )
+const hasLinks = computed(()=>  props.links != null && props.links.length > 0 )
 </script>
 
 <template>

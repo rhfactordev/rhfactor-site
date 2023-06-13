@@ -6,7 +6,7 @@ const site = useNuxtApp().site
 const session = useSessionStore()
 
 const isAuthenticated = computed(()=> session.isAuthenticated )
-const hasServiceLink =  computed(()=> site.servicesLink && site.servicesLink.length > 0 )
+const hasServiceLink =  computed(()=> site && site.servicesLink && site.servicesLink.length > 0 )
 
 useServerHead({
   titleTemplate: `%s - ${site.title}`,

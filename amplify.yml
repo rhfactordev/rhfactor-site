@@ -3,7 +3,6 @@ env:
   variables:
     SITE_TITLE: "$SITE_TITLE"
     SITE_DOMAIN: "$SITE_DOMAIN"
-    MERCADOPAGO_PUBLIC: "$MERCADOPAGO_PUBLIC"
     BACKEND_SERVER: "$BACKEND_SERVER"
 frontend:
   phases:
@@ -14,7 +13,6 @@ frontend:
       commands:
 #        - echo "SITE_TITLE=$SITE_TITLE" >> .env
 #        - echo "SITE_DOMAIN=$SITE_DOMAIN" >> .env
-#        - echo "MERCADOPAGO_PUBLIC=$MERCADOPAGO_PUBLIC" >> .env
 #        - echo "BACKEND_SERVER=$BACKEND_SERVER" >> .env
         - npm run build
   artifacts:

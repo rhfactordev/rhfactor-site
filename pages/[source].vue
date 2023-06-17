@@ -7,7 +7,7 @@ const pageSource = computed(()=> route.params.source )
 
 const { data : page } = await useFetch('/api/page',{
   query : {
-    page : 'index'
+    page : pageSource.value
   }
 })
 
@@ -18,6 +18,8 @@ const sections = computed(()=>{
       type: ()=>{
         if( section.component == 'BlogList' )
           return resolveComponent('BlogList')
+        if( section.component == 'About' )
+          return resolveComponent('About')
       }
     }
   })
@@ -36,8 +38,6 @@ useServerSeoMeta(meta)
 
 <template>
   <main>
-    {{ pageSource }}
-
     <component v-for="(section, i) in sections"
                :key="i" :is="section.type()"
                v-bind="section.params" />

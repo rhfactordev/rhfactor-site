@@ -9,7 +9,7 @@ const posts = data.value.posts
 </script>
 
 <template>
-    <h2 class="title">Últimos posts</h2>
+    <h2 class="title">{{title}}</h2>
     <p class="text-center mx-auto my-10 font-serif text-lg font-extralight">{{subtitle}}</p>
 
     <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 md:mx-28 xl:mx-40">

@@ -144,6 +144,13 @@ aside .title {
 
 .purple{
 
+    h1{
+        @apply text-black;
+    }
+    h2{
+        @apply text-black;
+    }
+
     HEADER{
         @apply bg-purple-700;
 

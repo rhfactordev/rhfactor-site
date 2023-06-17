@@ -1,39 +1,49 @@
 <script setup>
-import BlogCard from "~/components/elements/BlogCard.vue";
 import {useNuxtApp} from "#app";
 
-const { data } = await useFetch('/api/blog?limit=3')
-const posts = data.value.posts
-
 const site = useNuxtApp().site
+
+const page = computed(()=>{
+  return {
+    title : 'Titulo da Página',
+    sections : [
+      {
+        title: 'Conteúdo Atelier Herbal',
+        subtitle: 'A sabedoria das plantas nos auxilia ao autoconhecimento, autocuidado e cuidar de quem amamos para manutenção da vida em equilíbrio.',
+        component : 'BlogList',
+      }
+    ]
+  }
+})
+
+const sections = computed(()=>{
+  return page.value.sections.map(section=>{
+    return {
+      params : section,
+      type: ()=>{
+        if( section.component == 'BlogList' )
+          return resolveComponent('BlogList')
+      }
+    }
+  })
+})
+
 const meta = {
-  title: "Home",
-  ogTitle: "Home",
+  title: page.value.title,
+  ogTitle: page.value.title,
   description: site.description,
   ogDescription: site.description,
   ogImage: site.image
 }
-
 useSeoMeta(meta)
 useServerSeoMeta(meta)
 </script>
 
 <template>
   <main>
-    <h1 class="hidden">{{site.title}}</h1>
-
-    <section class="p-10 bg-teal-50">
-      <h2 class="title">Últimos posts</h2>
-      <p class="text-center mx-auto my-10 font-serif text-lg font-extralight">Quer se conectar mais a astrologia, de uma olhada nos nossos ultimos posts</p>
-      <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 md:mx-28 xl:mx-40">
-        <blog-card v-for="({title, image, target, description, date},index) in posts" :key="index"
-                   :name="title"
-                   :image="image"
-                   :date="date"
-                   :target="target"
-                   :description="description" />
-      </div>
-    </section>
+      <component v-for="(section, i) in sections"
+                 :key="i" :is="section.type()"
+                 v-bind="section.params" />
 
   </main>
 </template>

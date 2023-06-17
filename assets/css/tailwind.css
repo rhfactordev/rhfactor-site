@@ -87,51 +87,91 @@ aside .title {
 }
 
 .card {
+
     @apply block bg-white drop-shadow-md;
 
-.title {
-    @apply font-serif
-    font-extrabold
-    text-lg
-    text-center
-    mb-6;
-}
-
-.card-image {
-    @apply w-full mb-6;
-}
-
-.card-date {
-    @apply text-teal-400 text-sm text-center mx-auto mb-6;
-}
-
-.content {
-    @apply text-sm text-center p-3;
-}
-
-.more {
-    @apply text-center hover:text-emerald-900;
-}
-
-TABLE {
-    @apply w-full text-sm text-left text-gray-500;
-    THEAD{
-        @apply text-xs text-gray-700 uppercase bg-gray-50;
-        TH{
-            @apply px-6 py-3;
-        }
+    .title {
+        @apply font-serif
+        font-extrabold
+        text-lg
+        text-center
+        mb-6;
     }
-    TBODY{
-        TR{
-            @apply  border-b;
+
+    .card-image {
+        @apply w-full mb-6;
+    }
+
+    .card-date {
+        @apply text-teal-400 text-sm text-center mx-auto mb-6;
+    }
+
+    .content {
+        @apply text-sm text-center p-3;
+    }
+
+    .more {
+        @apply text-center hover:text-emerald-900;
+    }
+
+    TABLE {
+        @apply w-full text-sm text-left text-gray-500;
+        THEAD{
+            @apply text-xs text-gray-700 uppercase bg-gray-50;
             TH{
-                @apply px-6 py-4 font-medium text-gray-900 whitespace-nowrap;
+                @apply px-6 py-3;
             }
-            TD{
-                @apply px-6 py-4;
+        }
+        TBODY{
+            TR{
+                @apply  border-b;
+                TH{
+                    @apply px-6 py-4 font-medium text-gray-900 whitespace-nowrap;
+                }
+                TD{
+                    @apply px-6 py-4;
+                }
             }
         }
     }
 }
 
+
+
+/**
+ Sessão de layouts
+ */
+
+.purple{
+
+    h1{
+        @apply text-black;
+    }
+    h2{
+        @apply text-black;
+    }
+
+    HEADER{
+        @apply bg-purple-700;
+
+        NAV{
+            @apply bg-purple-800 md:bg-purple-700;
+            BUTTON{
+                @apply text-white;
+            }
+            UL{
+                @apply bg-purple-700 md:bg-transparent;
+                LI{
+                    A{
+                        @apply block text-white;
+                        &.active, &:hover{
+                            @apply text-brown-400 md:border-b border-brown-400 bg-purple-800 md:bg-transparent;
+                         }
+                    }
+                }
+            }
+        }
+    }
+
 }
+

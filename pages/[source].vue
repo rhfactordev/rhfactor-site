@@ -20,6 +20,8 @@ const sections = computed(()=>{
           return resolveComponent('BlogList')
         if( section.component == 'About' )
           return resolveComponent('About')
+        if( section.component == 'HeaderTitle' )
+          return resolveComponent('HeaderTitle')
       }
     }
   })

@@ -14,6 +14,10 @@ const pages = {
             title : `Sobre mim`,
             sections : [
                 {
+                    component : 'HeaderTitle',
+                    title : 'Quem é Adriana Guimarães?',
+                },
+                {
                     component : 'About',
                     title : 'Quem é Adriana Guimarães?',
                     content : '<p>Olá, sou Adriana Guimarães,</p><p>Terapeuta Floral e trabalho com a linguagem das flores através dos Florais de Bach e Elixires. Comecei a me relacionar mais com as plantas através dos estudos dos Florais de Bach, apesar de utiliza-los desde pequena.</p><p>A partir dos Florais me encantei com o universo herbal, suas diversas formas de uso, modo de preparo e utilização. Conheci, também, os óleos essenciais e estabeleci um relacionamento com eles. Hoje trabalho com os Florais de Bach e Elixires como uma farmácia ancestral, com dons medicinais, terapêuticos e naturais. </p><p>Ofereço meu trabalho às pessoas que se cuidam, querem aprofundar o autoconhecimento e têm interesse em utilizar a sabedoria das plantas para manter a vida em equilíbrio, cuidar de quem ama e com a possibilidade de ter uma nova profissão.</p><p>A produção dos Elixires tem raízes ancestrais, pois minhas avó e bisavó trabalhavam com ervas, flores e plantas.</p><p>Através da sabedoria das plantas, conexão e encantamento procuro ajudar pessoas a viverem em equilíbrio físico, mental, emocional e espiritual.</p><p>Com carinho,</p><p>Dri  </p>',
@@ -36,6 +40,10 @@ const pages = {
         'sobre-mim' : {
             title : `Sobre mim`,
             sections : [
+                {
+                    component : 'HeaderTitle',
+                    title : 'Quem é Andreza Ferreira?',
+                },
                 {
                     component : 'About',
                     title : 'Quem é Andreza Ferreira?',

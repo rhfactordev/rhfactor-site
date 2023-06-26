@@ -3,11 +3,11 @@ import {useNuxtApp} from "#app";
 
 const site = useNuxtApp().site
 const route = useRoute()
-const pageSource = computed(()=> route.params.source )
+const pageSource = computed(()=> route.params.source || 'index' )
 
 const { data : page } = await useFetch('/api/page',{
   query : {
-    page : 'index'
+    page : pageSource.value
   }
 })
 
@@ -18,6 +18,12 @@ const sections = computed(()=>{
       type: ()=>{
         if( section.component == 'BlogList' )
           return resolveComponent('BlogList')
+        if( section.component == 'GalerySlider' )
+          return resolveComponent('GalerySlider')
+        if( section.component == 'HeaderTitle' )
+          return resolveComponent('HeaderTitle')
+        if( section.component == 'About' )
+          return resolveComponent('About')
       }
     }
   })
@@ -36,8 +42,6 @@ useServerSeoMeta(meta)
 
 <template>
   <main>
-    {{ pageSource }}
-
     <component v-for="(section, i) in sections"
                :key="i" :is="section.type()"
                v-bind="section.params" />

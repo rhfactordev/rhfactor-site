@@ -3,7 +3,7 @@
 import {useNuxtApp} from "#app";
 import MercadoPagoForm from "~/components/checkout/MercadoPagoForm.vue";
 import PaymentOptions from "~/components/checkout/PaymentOptions.vue";
-import LoadinIcon from "~/components/LoadinIcon.vue";
+import LoadinIcon from "~/components/elements/LoadinIcon.vue";
 
 const app = useNuxtApp()
 const site = app.site

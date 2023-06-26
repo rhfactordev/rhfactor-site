@@ -6,6 +6,11 @@ const pages = {
                 {
                     title: 'Aprofunde-se em conhecer-nos!',
                     subtitle: 'A sabedoria das plantas nos auxilia ao autoconhecimento, autocuidado e cuidar de quem amamos para manutenção da vida em equilíbrio.',
+                    component : 'GalerySlider',
+                },
+                {
+                    title: 'Aprofunde-se em conhecer-nos!',
+                    subtitle: 'A sabedoria das plantas nos auxilia ao autoconhecimento, autocuidado e cuidar de quem amamos para manutenção da vida em equilíbrio.',
                     component : 'BlogList',
                 }
             ]

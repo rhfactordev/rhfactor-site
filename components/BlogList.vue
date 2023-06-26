@@ -9,6 +9,7 @@ const posts = data.value.posts
 </script>
 
 <template>
+  <section class="m-auto px-10">
     <h2 class="title">{{title}}</h2>
     <p class="text-center mx-auto my-10 font-serif text-lg font-extralight">{{subtitle}}</p>
 
@@ -20,4 +21,5 @@ const posts = data.value.posts
                  :target="target"
                  :description="description" />
     </div>
+  </section>
 </template>

@@ -90,7 +90,7 @@ const pages = {
                 {
                     component : 'VBannerTitle',
                     class:"mb-5",
-                    image:"/images/sobre-roberto-alves-banner.png",
+                    image:"https://rhfactor-storage.s3.amazonaws.com/5/images/sobre-roberto-alves-banner.png",
                     title:"Sobre Roberto Alves",
                     subtitle:"Penso afinal que somos frutos de nossas ilusões. Porque é na busca daquilo que se imaginou, independente do meio influenciado ou não, que se resulta em algo concreto.",
                 },

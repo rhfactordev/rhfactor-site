@@ -34,6 +34,10 @@ const sections = computed(()=>{
           return resolveComponent('layout/VStickyNavbar')
         if( section.component == 'VTitle' )
           return resolveComponent('layout/VTitle')
+        if( section.component == 'VTopics' )
+          return resolveComponent('layout/VTopics')
+        if( section.component == 'VImageText' )
+          return resolveComponent('layout/VImageText')
       }
     }
   })

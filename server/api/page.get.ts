@@ -85,18 +85,30 @@ const pages = {
             ]
         },
         'sobre-mim' : {
-            title : `Sobre mim`,
+            title : `Sobre Roberto Alves`,
             sections : [
                 {
-                    component : 'HeaderTitle',
-                    title : 'Quem é Adriana Guimarães?',
+                    component : 'VBannerTitle',
+                    class:"mb-5",
+                    image:"/images/sobre-roberto-alves-banner.png",
+                    title:"Sobre Roberto Alves",
+                    subtitle:"Penso afinal que somos frutos de nossas ilusões. Porque é na busca daquilo que se imaginou, independente do meio influenciado ou não, que se resulta em algo concreto.",
                 },
                 {
-                    component : 'About',
-                    title : 'Quem é Adriana Guimarães?',
-                    content : '<p>Olá, sou Adriana Guimarães,</p><p>Terapeuta Floral e trabalho com a linguagem das flores através dos Florais de Bach e Elixires. Comecei a me relacionar mais com as plantas através dos estudos dos Florais de Bach, apesar de utiliza-los desde pequena.</p><p>A partir dos Florais me encantei com o universo herbal, suas diversas formas de uso, modo de preparo e utilização. Conheci, também, os óleos essenciais e estabeleci um relacionamento com eles. Hoje trabalho com os Florais de Bach e Elixires como uma farmácia ancestral, com dons medicinais, terapêuticos e naturais. </p><p>Ofereço meu trabalho às pessoas que se cuidam, querem aprofundar o autoconhecimento e têm interesse em utilizar a sabedoria das plantas para manter a vida em equilíbrio, cuidar de quem ama e com a possibilidade de ter uma nova profissão.</p><p>A produção dos Elixires tem raízes ancestrais, pois minhas avó e bisavó trabalhavam com ervas, flores e plantas.</p><p>Através da sabedoria das plantas, conexão e encantamento procuro ajudar pessoas a viverem em equilíbrio físico, mental, emocional e espiritual.</p><p>Com carinho,</p><p>Dri  </p>',
-                    image : 'https://adrianaflorais.com.br/wp-content/uploads/2023/01/adriana-12.webp'
-                }
+                    component : 'VTopics',
+                    topics : [
+                        { pre : '20+', title : 'Experiência como Programador', description : 'Desenvolvendo softwares há mais de 20 anos para grandes empresas.' },
+                        { pre : '10+', title : 'Uma década empreendendo', description : 'Há mais de 10 anos empreendendo através da RH Factor, empresa criada por mim.' },
+                        { pre : '8+', title : 'Lançamentos de Ecommerce', description : 'Já foram mais de 8 grandes empresas quais fiz parte da implantação de B2C e B2B.' },
+                        { pre : '4+', title : 'Mentorias de neógiocs', description : 'Mais de 4 empreendedores já passaram pela minha mentoria para negócios digitais.' },
+                    ]
+                },
+                {
+                    component : 'VImageText',
+                    title: 'Oi, eu sou Roberto...',
+                    image: 'https://rhfactor-storage.s3.amazonaws.com/5/images/quem-e-roberto-alves.jpg',
+                    content: '<p class="mb-3">Iniciei minha jornada profissional aos 14 anos, atuando com vendas no ramo de artigos esportivos. Com uma facilidade natural de comunicação, obtive sucesso nessa área. No entanto, minha curiosidade me levou a explorar o desenvolvimento de softwares, entregando meu primeiro site aos 16 anos para uma loja de decoração em uma rua icônica de São Paulo.</p><p class="mb-3">A partir desse momento, meu caminho se entrelaçou com a indústria química, bancos e empresas de telecomunicação nos Estados Unidos e na Venezuela. Contudo, foi durante minha passagem pela Faria Lima, o grande centro de negócios de São Paulo, que minha carreira ganhou maior visibilidade. Ali, tive a oportunidade de voltar ao ambiente de vendas e negócios, trabalhando com o maior sistema de B2B do Brasil e atendendo grandes clientes e parceiros de negócios do mercado automotivo.</p><p class="mb-3">Durante minha jornada, morei em mais de 18 lugares e trabalhei com renomadas empresas e bancos, como o Banco Itaú e a TOTVS, uma gigante do desenvolvimento de softwares.</p><p class="mb-3">Mas foi quando minha carreira estava em ascensão que percebi a importância da liderança emocional. Busquei aprimorar minha interação com a equipe, utilizando técnicas como PNL e hipnose. Foi então que mudanças em mim despertaram o desejo de dar voz a pessoas com propósitos maiores.</p><p class="mb-3">Hoje, aos 37 anos, sinto-me preparado para ajudar empreendedores a criarem e impulsionarem seus negócios, realizando seus propósitos de vida. Com mais de 15 anos de experiência com negócios, compartilho conhecimentos em tecnologia, processos e melhoria contínua para negócios.</p><p class="mb-3">Minha missão é transformar a vida dos empreendedores e das pessoas que eles amam através da RH Factor, minha empresa que já está há mais de 10 anos no mercado, oferecemos uma assessoria completa em comunicação e posicionamento de marcas para facilitação de vendas online.</p>'
+                },
             ]
         }
     },

@@ -8,7 +8,7 @@ const size = computed(()=>{
 })
 </script>
 <template>
-  <component class="font-bold uppercase mb-1"
+  <component class="font-bold uppercase mb-3"
              :class="size"
              :is="tagTitle">{{ title }}</component>
   <hr class="border-b border-cyan-500 w-20 mb-5"/>

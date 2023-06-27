@@ -1,4 +1,6 @@
 <script setup>
+import VSocial from "~/components/layout/VSocial.vue";
+
 const props = defineProps(["title", "document", "services", "links", "description", "phone", "email", "social", "logo"])
 const hasLinks = computed(()=>  props.links != null && props.links.length > 0 )
 const hasServices = computed(()=>  props.services != null && props.services.length > 0 )
@@ -11,7 +13,7 @@ const hasServices = computed(()=>  props.services != null && props.services.leng
       <div class="mr-12 hidden lg:block">
         <span>Conecte-se comigo através das redes sociais:</span>
       </div>
-      <layout-social :social="social" />
+      <v-social :social="social" />
     </div>
 
 

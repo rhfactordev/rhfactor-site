@@ -4,6 +4,7 @@ export default defineNuxtConfig({
         '@nuxtjs/tailwindcss',
         'nuxt-delay-hydration',
         '@nuxtjs/html-validator',
+        '@nuxtjs/google-fonts',
         'nuxt-gtag',
         'nuxt-icon',
         '@pinia/nuxt',
@@ -21,7 +22,14 @@ export default defineNuxtConfig({
         // enables nuxt-delay-hydration in dev mode for testing
         debug: false //   process.env.NODE_ENV === 'development'
     },
-    runtimeConfig:{
+    googleFonts: {
+        families: {
+            Poppins: {
+                wght: [100, 400, 700],
+            },
+        }
+    },
+    runtimeConfig: {
         backendServer: process.env.BACKEND_SERVER || 'http://localhost:5000',
         domain: process.env.SITE_DOMAIN || 'localhost',
     }

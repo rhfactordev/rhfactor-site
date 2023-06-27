@@ -6,7 +6,7 @@ const hasCtaButton = computed(()=> props.cta != null)
 
 </script>
 <template>
-  <section class="container mx-auto">
+  <section class="container mx-auto mb-10">
     <div class="grid grid-cols-1 md:grid-cols-2 gap-10 lg:gap-x-16 items-center">
       <div class="order-2 max-w-lg max-h-[500px] mx-auto overflow-hidden">
         <img :src="image"

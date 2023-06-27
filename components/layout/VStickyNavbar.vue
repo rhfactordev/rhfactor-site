@@ -1,6 +1,8 @@
 <script setup>
 import VButton from "~/components/layout/VButton.vue";
 
+const props = defineProps(["logo","title","menu"])
+
 const menuState = ref(false)
 const dropdownState = ref(false)
 const isMenuOpened = computed(()=> menuState.value )
@@ -16,21 +18,12 @@ const closeDropdown = () => {
   menuState.value = false
   dropdownState.value = false
 }
-
-const menu = computed(()=>{
-  return [
-    { title : 'Home' , target : '/' },
-    { title : 'Sobre mim' , target : '/sobre-mim' },
-    { title : 'Serviços' , target : '/servicos' },
-  ]
-})
-
 </script>
 <template>
   <nav class="bg-white w-full z-20 top-0 sticky left-0 border-b border-gray-200 shadow-lg">
     <div class="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
       <nuxt-link to="/" class="flex-shrink">
-        <img class="w-full max-w-sm" src="/images/roberto-alves-logo.png" alt="Logo for Roberto Alves">
+        <img class="w-full max-w-sm" :src="logo" :alt="`Logo de ${title}`">
       </nuxt-link>
       <div class="flex md:order-2">
         <v-button class="cyan hidden md:block" to="/contato">Contato</v-button>

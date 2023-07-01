@@ -1,13 +1,15 @@
 <script setup>
-const props = defineProps(['to'])
-const to = computed(()=> props.to || '')
+const props = defineProps(['to', 'type'])
+const target = computed(()=> props.to || '')
+const typed = computed(()=> props.type || 'button')
 const isLink = computed(()=> props.to != null && props.to.length > 0 )
+
 </script>
 <template>
-  <nuxt-link v-if="isLink" class="btn" :to="to">
+  <nuxt-link v-if="isLink" class="btn" :to="target">
     <slot />
   </nuxt-link>
-  <button class="btn" v-else>
+  <button :type="typed" class="btn" v-else>
     <slot />
   </button>
 </template>

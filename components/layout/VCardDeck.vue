@@ -7,6 +7,15 @@ import VTitle from "~/components/layout/VTitle.vue";
 const props = defineProps(['title', 'subtitle', 'items', 'cta', 'target'])
 const hasCtaButton = computed(()=> props.cta != null)
 
+const jsonItem = computed(()=> {
+  try {
+    return JSON.parse(props.items)
+  }catch (e){
+    console.log('jsonItem', e)
+    return []
+  }
+})
+
 </script>
 
 <template>
@@ -17,7 +26,7 @@ const hasCtaButton = computed(()=> props.cta != null)
           :subtitle="subtitle"
       />
       <div class="grid gap-4 grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
-        <v-card-item v-for="({ title, subtitle, description, target, image, cta, pre } ,i) in items" :key="i"
+        <v-card-item v-for="({ title, subtitle, description, target, image, cta, pre } ,i) in jsonItem" :key="i"
                      :title="title"
                      :subtitle="subtitle"
                      :description="description"

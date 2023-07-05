@@ -9,11 +9,12 @@
     "postinstall": "nuxt prepare"
   },
   "devDependencies": {
-    "@nuxtjs/html-validator": "^1.2.5",
-    "@nuxtjs/tailwindcss": "^6.6.8",
     "@types/node": "^18",
-    "nuxt": "^3.5.1",
+    "@nuxtjs/html-validator": "^1.2.5",
+    "@nuxtjs/google-fonts": "^3.0.1",
+    "@nuxtjs/tailwindcss": "^6.6.8",
     "nuxt-delay-hydration": "^1.1.4",
+    "nuxt": "^3.5.1",
     "nuxt-gtag": "^0.5.7",
     "nuxt-icon": "^0.4.1"
   },

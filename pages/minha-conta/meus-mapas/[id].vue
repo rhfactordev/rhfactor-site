@@ -2,7 +2,7 @@
 
 import ETitle from "~/components/elements/ETitle.vue";
 import {useSessionStore} from "~/stores/session";
-import BirthmapRender from "~/components/BirthmapRender.vue";
+import BirthmapRender from "~/components/elements/BirthmapRender.vue";
 
 const route = useRoute()
 const loading = ref(false)

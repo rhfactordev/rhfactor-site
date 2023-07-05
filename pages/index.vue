@@ -38,6 +38,8 @@ const sections = computed(()=>{
           return resolveComponent('layout/VTopics')
         if( section.component == 'VImageText' )
           return resolveComponent('layout/VImageText')
+        if( section.component == 'VBlogDeck' )
+          return resolveComponent('layout/VBlogDeck')
       }
     }
   })

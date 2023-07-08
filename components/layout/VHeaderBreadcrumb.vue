@@ -1,0 +1,24 @@
+<script setup>
+
+const props = defineProps(['title', 'subtitle', 'items'])
+
+const titleComputed = computed(()=>  props.title || 'Titulo' )
+const subtitleComputed = computed(() => props.subtitle || '')
+const linksComputed = computed(()=> JSON.parse(props.items) || [])
+const hasSubtitle = computed(()=> subtitleComputed.value.length > 2 )
+
+</script>
+
+<template>
+  <div>
+    <div class="container px-10 lg:px-0 mx-auto flex justify-between align-middle py-10 h-40">
+      <div>
+        <h2 class="text-4xl pt-5 mb-3">{{titleComputed}}</h2>
+        <p v-if="hasSubtitle" class="text-xs">{{subtitleComputed}}</p>
+      </div>
+      <ul class="pt-12 flex text-sm">
+        <li v-for="({to, label},i) in linksComputed" :key="i" class="mr-3"><nuxt-link :to="to">{{label}}</nuxt-link></li>
+      </ul>
+    </div>
+  </div>
+</template>

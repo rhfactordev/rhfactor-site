@@ -7,6 +7,8 @@ import VTitle from "~/components/layout/VTitle.vue";
 const props = defineProps(['title', 'subtitle', 'items', 'cta', 'target'])
 const hasCtaButton = computed(()=> props.cta != null)
 
+const hasTitle = computed(() => props.title && props.title.length> 2)
+
 const jsonItem = computed(()=> {
   try {
     return JSON.parse(props.items)
@@ -22,6 +24,7 @@ const jsonItem = computed(()=> {
   <section class="py-20">
     <div class="container mx-auto px-10">
       <v-title
+          v-if="hasTitle"
           :title="title"
           :subtitle="subtitle"
       />

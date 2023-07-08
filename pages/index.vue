@@ -40,6 +40,8 @@ const sections = computed(()=>{
           return resolveComponent('layout/VImageText')
         if( section.component == 'VBlogDeck' )
           return resolveComponent('layout/VBlogDeck')
+        if( section.component  == 'VHeaderBreadcrumb')
+          return resolveComponent('layout/VHeaderBreadcrumb')
       }
     }
   })

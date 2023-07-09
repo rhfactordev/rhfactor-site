@@ -4,7 +4,12 @@ const props = defineProps(['title', 'subtitle', 'items'])
 
 const titleComputed = computed(()=>  props.title || 'Titulo' )
 const subtitleComputed = computed(() => props.subtitle || '')
-const linksComputed = computed(()=> JSON.parse(props.items) || [])
+const linksComputed = computed(()=> {
+  if( props.items ){
+    return JSON.parse(props.items)
+  }
+  return []
+})
 const hasSubtitle = computed(()=> subtitleComputed.value.length > 2 )
 
 </script>

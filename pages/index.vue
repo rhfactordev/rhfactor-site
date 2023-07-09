@@ -12,6 +12,9 @@ const { data : page } = await useFetch('/api/page',{
 })
 
 const sections = computed(()=>{
+  if(!page.value.sections){
+    return []
+  }
   return page.value.sections.map(section=>{
     return {
       params : section,

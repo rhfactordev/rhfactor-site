@@ -6,12 +6,12 @@ const hasCtaButton = computed(()=> props.cta != null)
 
 </script>
 <template>
-  <section class="container mx-auto mb-10">
+  <section class="container mx-auto">
     <div class="grid grid-cols-1 md:grid-cols-2 gap-10 lg:gap-x-16 items-center">
       <div class="order-2 max-w-lg max-h-[500px] mx-auto overflow-hidden">
         <img :src="image"
              :alt="`Image for ${title}`"
-             class="w-auto">
+             class="wx-auto">
       </div>
       <div class="px-10">
         <p class="font-bold my-10">{{ pre }}</p>

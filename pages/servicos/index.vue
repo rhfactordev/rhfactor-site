@@ -3,7 +3,7 @@ import {useNuxtApp} from "#app";
 
 const site = useNuxtApp().site
 const route = useRoute()
-const pageSource = computed(()=> route.params.source || 'servico' )
+const pageSource = computed(()=> route.params.source || 'servicos' )
 
 const { data : page } = await useFetch('/api/page',{
   query : {

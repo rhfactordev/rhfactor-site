@@ -7,6 +7,5 @@ export default defineEventHandler(async (event) => {
             "Content-Type": "application/json",
         },
     })
-    console.log(response)
     return response
 })

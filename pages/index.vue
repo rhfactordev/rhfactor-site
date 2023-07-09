@@ -12,7 +12,7 @@ const { data : page } = await useFetch('/api/page',{
 })
 
 const sections = computed(()=>{
-  if(!page.value.sections){
+  if(!page.value || !page.value.sections ){
     return []
   }
   return page.value.sections.map(section=>{
@@ -50,9 +50,22 @@ const sections = computed(()=>{
   })
 })
 
+const pageComputed = computed(() =>{
+  if( page.value ){
+    return page.value
+  }
+
+  return {
+    title: 'Página não encontrada',
+  }
+
+})
+
+const hasSections = computed(()=> sections.value.length > 0)
+
 const meta = {
-  title: page.value.title,
-  ogTitle: page.value.title,
+  title: pageComputed.value.title,
+  ogTitle: pageComputed.value.title,
   description: site.description,
   ogDescription: site.description,
   ogImage: site.image
@@ -66,6 +79,12 @@ useServerSeoMeta(meta)
     <component v-for="(section, i) in sections"
                :key="i" :is="section.type()"
                v-bind="section.params" />
+
+    <section class="h-56" v-if="!hasSections">
+      <div class="container text-center mx-auto py-10">
+        <p>Esta página não foi encontrada</p>
+      </div>
+    </section>
 
   </main>
 </template>

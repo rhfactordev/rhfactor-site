@@ -16,14 +16,14 @@ const hasSubtitle = computed(()=> subtitleComputed.value.length > 2 )
 
 <template>
   <div>
-    <div class="container px-10 mx-auto flex justify-between align-middle py-7 h-40">
+    <div class="container px-10 mx-auto flex flex-wrap justify-between align-middle py-7 h-40">
+      <ul class="pt-12 flex text-sm order-2">
+        <li v-for="({to, label},i) in linksComputed" :key="i" class="mr-3"><nuxt-link :to="to">{{label}}</nuxt-link></li>
+      </ul>
       <div>
         <h2 class="text-4xl pt-5 mb-3">{{titleComputed}}</h2>
         <p v-if="hasSubtitle" class="text-xs">{{subtitleComputed}}</p>
       </div>
-      <ul class="pt-12 flex text-sm">
-        <li v-for="({to, label},i) in linksComputed" :key="i" class="mr-3"><nuxt-link :to="to">{{label}}</nuxt-link></li>
-      </ul>
     </div>
   </div>
 </template>

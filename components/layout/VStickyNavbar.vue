@@ -1,11 +1,14 @@
 <script setup>
 import VButton from "~/components/layout/VButton.vue";
 
-const props = defineProps(["logo","title","menu"])
+const props = defineProps(["logo","title","menu","cta", "target"])
 
 const menuState = ref(false)
 const dropdownState = ref(false)
+
 const isMenuOpened = computed(()=> menuState.value )
+const hasCta = computed(()=> props.cta && props.target )
+const targetWindow = computed(()=> props.target.startsWith('http') ? '_blank' : '_self' )
 
 const openCloseMenu = () => {
   if( menuState.value ){
@@ -26,7 +29,9 @@ const closeDropdown = () => {
         <img class="w-full max-w-sm" :src="logo" :alt="`Logo de ${title}`">
       </nuxt-link>
       <div class="flex md:order-2">
-        <v-button class="cyan hidden md:block" to="/contato">Contato</v-button>
+        <nuxt-link v-if="hasCta" :to="target" :target="targetWindow">
+          <v-button class="cyan hidden md:block">{{cta}}</v-button>
+        </nuxt-link>
         <button @click="openCloseMenu"  data-collapse-toggle="navbar-sticky" type="button" class="inline-flex items-center p-2 text-sm text-gray-500 rounded-lg md:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200" aria-controls="navbar-sticky" aria-expanded="false">
           <span class="sr-only">Open main menu</span>
           <svg class="w-6 h-6" aria-hidden="true" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M3 5a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 10a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 15a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1z" clip-rule="evenodd"></path></svg>

@@ -11,8 +11,12 @@ const menu = computed(()=>{
     { title : 'Home' , target : '/' },
     { title : 'Sobre mim' , target : '/sobre-mim' },
     { title : 'Serviços' , target : '/servicos' },
+    { title : 'Blog' , target : '/blog' },
+    { title : 'Contato' , target : '/contato' },
   ]
 })
+
+const whatsappTarget = computed(()=> `https://wa.me/${site.whatsapp.replace(/\D/g,'')}`)
 
 </script>
 <template>
@@ -20,6 +24,8 @@ const menu = computed(()=>{
   <v-sticky-navbar :title="site.title"
                    :logo="site.image"
                    :menu="menu"
+                   cta="Whatsapp"
+                   :target="whatsappTarget"
   />
   <nuxt-loading-indicator />
   <slot />

@@ -21,7 +21,7 @@ const hasServices = computed(()=>  props.services != null && props.services.leng
       <div class="grid-1 grid gap-8 md:grid-cols-2 lg:grid-cols-4">
         <div>
           <img class="w-96 m-auto" :src="logo" :alt="`Logo ${title}`">
-          <p class="mx-4 hidden md:block text-sm">
+          <p class="mx-4 hidden md:block text-xs">
             {{description}}
           </p>
           <p class="mx-4">

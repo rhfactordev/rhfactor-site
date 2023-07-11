@@ -33,7 +33,7 @@ useServerSeoMeta(metatags.value)
       <ul class="text-center mx-auto w-full sm:w-10/12 p-5">
         <li class="rounded-lg shadow bg-neutral-200 transition-colors hover:bg-neutral-400 border border-neutral-300 mb-3 py-3" v-for="({name, target, icon}, i) in links" :key="i">
           <IconCSS class="mr-3" v-if="icon.length > 2" :name="icon" />
-          <nuxt-link :to="target">{{name}}</nuxt-link>
+          <nuxt-link :to="target" target="_blank">{{name}}</nuxt-link>
         </li>
       </ul>
     </section>

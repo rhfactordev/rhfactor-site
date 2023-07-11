@@ -5,7 +5,7 @@ const app = useNuxtApp()
 const route = useRoute()
 
 const layout = computed(()=>{
-  if(route.fullPath === '/links'){
+  if(route.fullPath.startsWith('/links')){
     return false
   }
   return app.site.layout

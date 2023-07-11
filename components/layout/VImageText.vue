@@ -4,7 +4,7 @@
   defineProps(['image', 'title', 'content'])
 </script>
 <template>
-  <section class="bg-neutral-200">
+  <section>
     <div class="container mx-auto px-10 py-20">
       <v-title :title="title" size="4" />
       <div class="grid grid-cols-1 sm:grid-cols-2">

@@ -25,7 +25,8 @@ const closeDropdown = () => {
 <template>
   <nav class="bg-white w-full z-20 top-0 sticky left-0 border-b border-gray-200 shadow-lg">
     <div class="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
-      <nuxt-link to="/" class="flex-shrink">
+
+      <nuxt-link class="max-w-[245px] sm:max-w-full" to="/">
         <img class="w-full max-w-sm" :src="logo" :alt="`Logo de ${title}`">
       </nuxt-link>
       <div class="flex md:order-2">

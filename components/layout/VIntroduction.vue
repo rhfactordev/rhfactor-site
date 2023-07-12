@@ -4,6 +4,13 @@ import VButton from "~/components/layout/VButton.vue";
 const props = defineProps(['pre','title','description', 'actions', 'image', 'cta', 'target'])
 const hasCtaButton = computed(()=> props.cta != null)
 
+const actionsComputed = computed(() => {
+  if( hasCtaButton.value ){
+    return [ { target : props.target , title  : props.cta , style : props.style  } ]
+  }
+  return props.actions
+})
+
 </script>
 <template>
   <section class="container mx-auto">
@@ -19,7 +26,7 @@ const hasCtaButton = computed(()=> props.cta != null)
         <p class="mb-6">
           {{ description }}
         </p>
-        <v-button v-for="({ target , title, style }, i) in actions"
+        <v-button v-for="({ target , title, style }, i) in actionsComputed"
                   :class="style"
                   :key="i"
                   :to="target">{{ title }}</v-button>

@@ -20,7 +20,6 @@ const whatsappTarget = computed(()=> `https://wa.me/${site.whatsapp.replace(/\D/
 
 </script>
 <template>
-  <v-header />
   <v-sticky-navbar :title="site.title"
                    :logo="site.image"
                    :menu="menu"
